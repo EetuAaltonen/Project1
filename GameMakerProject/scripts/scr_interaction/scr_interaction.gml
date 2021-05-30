@@ -51,8 +51,7 @@ function ResetInteraction() {
 	if (instance_exists(controller)) {
 		with (controller) {
 			highlightedObject = noone;
-			interactionMenu = false;
-			interactionMenuValues = noone;
+			interactionMenuValues = undefined;
 			selectedMenuIndex = 0;	
 		}
 	}

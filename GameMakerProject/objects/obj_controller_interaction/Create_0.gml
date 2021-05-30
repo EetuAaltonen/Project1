@@ -3,5 +3,4 @@
 highlightedObject = noone;
 highlightCooldown = 1 * room_speed;
 selectedMenuIndex = 0;
-interactionMenu = false;
-interactionMenuValues = noone;
+interactionMenuValues = undefined;

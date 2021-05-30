@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
-if (highlightedObject != noone && interactionMenuValues != noone && interactionMenu) {
+if (highlightedObject != noone && !is_undefined(interactionMenuValues)
+	&& GetGUIStatement() == GUIStatement.ActionMenu) {
 	var guiX = 100;
 	var guiY = 100;
 	var margin = 20;

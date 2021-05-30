@@ -36,6 +36,19 @@ function HorizontalCollision(_object) {
 				}
 				speedVector.x = 0;
 			}
+			
+			if (x + speedVector.x < 0) {
+				while (x + speedVector.x >= 0) {
+					x += sign(speedVector.x);
+				}
+				speedVector.x = 0;
+			} else if (x + speedVector.x > room_width) {
+				while (x + speedVector.x <= room_width) {
+					x += sign(speedVector.x);
+				}
+				speedVector.x = 0;
+			}
+			
 			return speedVector.x;
 		}
 	}
@@ -54,7 +67,20 @@ function VerticalCollision(_object) {
 					y += sign(speedVector.y);
 				}
 				speedVector.y = 0;
-			};
+			}
+			
+			if (y + speedVector.y < 0) {
+				while (y + speedVector.y >= 0) {
+					y += sign(speedVector.y);
+				}
+				speedVector.y = 0;
+			} else if (y + speedVector.y > room_height) {
+				while (y + speedVector.y <= room_height) {
+					y += sign(speedVector.y);
+				}
+				speedVector.y = 0;
+			}
+			
 			return speedVector.y;
 		}
 	}

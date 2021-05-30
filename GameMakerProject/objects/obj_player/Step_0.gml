@@ -6,11 +6,7 @@ keyDown = keyboard_check(ord("S"));
 keyRight = keyboard_check(ord("D"));
 keyRun = keyboard_check(vk_shift);
 
-if (instance_exists(obj_controller_interaction)) {
-	with (obj_controller_interaction) {
-		if (interactionMenu) return;	
-	}
-}
+if (GetGUIStatement() != GUIStatement.Undefined) return;
 
 var hMove = keyRight - keyLeft;
 
