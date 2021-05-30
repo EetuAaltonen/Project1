@@ -6,36 +6,32 @@ keyDown = keyboard_check(ord("S"));
 keyRight = keyboard_check(ord("D"));
 keyRun = keyboard_check(vk_shift);
 
+if (instance_exists(obj_controller_interaction)) {
+	with (obj_controller_interaction) {
+		if (interactionMenu) return;	
+	}
+}
+
 var hMove = keyRight - keyLeft;
 
 // Run or Walk
-hSpeed = keyRun ? hMove * runSpeed : hMove * walkSpeed;
+speedVector.x = keyRun ? hMove * runSpeed : hMove * walkSpeed;
 
-if (place_meeting(x + hSpeed, y, obj_collision_parent)) {
-	while (!place_meeting(x + sign(hSpeed), y, obj_collision_parent)) {
-		x += sign(hSpeed);
-	}
-	hSpeed = 0;
-}
-x += hSpeed;
+speedVector.x = HorizontalCollision(self);
+x += speedVector.x;
 
 // Jump
-if (place_meeting(x, y + 1, obj_collision_parent) && keyUp) {
-	vSpeed -= jumpSpeed;
+if (IsGrounded(self) && keyUp) {
+	speedVector.y -= jumpSpeed;
 	headgearOffsetDir = 1;
 }
 
-vSpeed += global.GRAVITY
-if (place_meeting(x, y + vSpeed, obj_collision_parent)) {
-	while (!place_meeting(x, y + sign(vSpeed), obj_collision_parent)) {
-		y += sign(vSpeed);
-	}
-	vSpeed = 0;
-};
-y += vSpeed;
+speedVector.y += global.GRAVITY
+speedVector.y = VerticalCollision(self);
+y += speedVector.y;
 
 // Animation
-image_xscale = hSpeed != 0 ? sign(hSpeed): image_xscale;
+image_xscale = speedVector.x != 0 ? sign(speedVector.x): image_xscale;
 if (hMove != 0) {
 	rightArmRotation += (rightArmRotationDir * armRotationStep);
 	leftArmRotation += (leftArmRotationDir * armRotationStep);

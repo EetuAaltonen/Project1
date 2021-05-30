@@ -1,6 +1,6 @@
 /// @description Insert description here
-// You can write your code in this editor
-vSpeed = 0;
+speedVector = new Vector2(0, 0);
+rotation = new Rotation(0, 0);
 
-highlighted = false;
+interactions = [Interaction.Lift, Interaction.Push];
 uniformHandle = shader_get_uniform(sh_highlight_self, "texture_Pixel");

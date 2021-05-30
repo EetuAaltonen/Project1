@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if (highlighted) {
+if (IsHighlighted(self)) {
 	// Highlight shader
 	shader_set(sh_highlight_self);
 

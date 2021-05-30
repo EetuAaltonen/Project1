@@ -1,6 +1,6 @@
 /// @description Insert description here
-hSpeed = 0;
-vSpeed = 0;
+speedVector = new Vector2(0, 0);
+rotation = new Rotation(0, 0);
 walkSpeed = 4;
 runSpeed = 6;
 jumpSpeed = 8;
