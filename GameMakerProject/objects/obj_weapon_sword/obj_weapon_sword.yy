@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_player_head",
-    "path": "sprites/spr_player_head/spr_player_head.yy",
+    "name": "spr_weapon_sword",
+    "path": "sprites/spr_weapon_sword/spr_weapon_sword.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,17 +21,17 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Player",
-    "path": "folders/Objects/Player.yy",
+    "name": "Weapons",
+    "path": "folders/Objects/Equipment/Weapons.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_player_head",
+  "name": "obj_weapon_sword",
   "tags": [],
   "resourceType": "GMObject",
 }

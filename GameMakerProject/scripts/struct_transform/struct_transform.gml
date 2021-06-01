@@ -2,19 +2,16 @@
 	Insert description here
 	return:
 */
-function Transform(_object, _instance, _parent, _transformFunc, _xOffset, _yOffset, _rotation, _depth) constructor {
+function Transform(_object, _instance, _parent, _transformFunc, _offset, _xScale, _yScale, _rotation, _depth) constructor {
 	Object = _object;
 	Instance = _instance;
 	Parent = _parent;
 	TransformFunc = _transformFunc;
-	DefaultXOffset = _xOffset;
-	DefaultYOffset = _yOffset;
-	DefaultRotation = _rotation;
-	DefaultDepth = _depth;
-	XOffset = DefaultXOffset;
-	YOffset = DefaultYOffset;
-	Rotation = DefaultRotation;
-	DepthOffset = DefaultDepth;
+	Offset = _offset;
+	XScale = _xScale;
+	YScale = _yScale;
+	Rotation = _rotation;
+	Depth = _depth;
 	ChildList = ds_list_create();
 	
 	/*
@@ -33,51 +30,8 @@ function Transform(_object, _instance, _parent, _transformFunc, _xOffset, _yOffs
 			var child = ds_list_find_value(ChildList, i);
 			var instance = instance_create_layer(Instance.x, Instance.y, Instance.layer, child.Object);
 			child.Instance = instance;
+			child.CreateAllChild();
 		}
-    }
-	
-	/*
-		Insert description here
-	*/
-	static SetOffset = function(_xOffset, _yOffset) {
-		XOffset = _xOffset.x;
-		YOffset = _yOffset.y;
-    }
-	
-	/*
-		Insert description here
-	*/
-	static ResetOffset = function() {
-		XOffset = DefaultXOffset;
-		YOffset = DefaultYOffset;
-    }
-	
-	/*
-		Insert description here
-	*/
-	static SetRotation = function(_rotation) {
-		Rotation = _rotation;
-    }
-	
-	/*
-		Insert description here
-	*/
-	static ResetRotation = function() {
-		Rotation = DefaultRotation;
-    }
-	
-	/*
-		Insert description here
-	*/
-	static SetDepthOffset = function(_depthOffset) {
-		DepthOffset = _depth;
-    }
-	
-	/*
-		Insert description here
-	*/
-	static ResetRotation = function() {
-		DepthOffset = DefaultDepth;
     }
 	
 	/*

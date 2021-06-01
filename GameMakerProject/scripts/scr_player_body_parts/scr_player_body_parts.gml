@@ -6,12 +6,8 @@ function TransFuncPlayerHead(_transform) {
 	var instance = _transform.Instance;
 	var parent = _transform.Parent;
 	if (instance_exists(_transform.Parent.Instance)) {
-		var xDir = sign(parent.Instance.image_xscale);
-		instance.x = parent.Instance.x + _transform.XOffset;
-		instance.y = parent.Instance.y + _transform.YOffset;
-		instance.image_xscale = xDir;
-		instance.image_angle = _transform.Rotation;
-		instance.depth = parent.Instance.depth + _transform.DepthOffset;
+		TransFuncPlayerLimb(_transform);
+		instance.depth = parent.Instance.depth + _transform.Depth;
 	} else {
 		instance_destroy();	
 	}
@@ -23,14 +19,18 @@ function TransFuncPlayerHead(_transform) {
 */
 function TransFuncPlayerLimb(_transform) {
 	var instance = _transform.Instance;
-	var parent = _transform.Parent;
-	if (instance_exists(_transform.Parent.Instance)) {
-		var xDir = sign(parent.Instance.image_xscale);
-		instance.x = parent.Instance.x + _transform.XOffset;
-		instance.y = parent.Instance.y + _transform.YOffset;
-		instance.image_xscale = xDir;
-		instance.image_angle = _transform.Rotation;
-		instance.depth = parent.Instance.depth + (DepthOffset * xDir);
+	var parentInstance = _transform.Parent.Instance;
+	if (instance_exists(parentInstance)) {
+		var xDir = sign(parentInstance.image_xscale);
+		var yDir = sign(parentInstance.image_yscale);
+		
+		var rotatedPos = _transform.Offset.Rotate(parentInstance.image_angle);
+		instance.x = parentInstance.x + rotatedPos.x;
+		instance.y = parentInstance.y + rotatedPos.y;
+		instance.image_xscale = _transform.XScale * xDir;
+		instance.image_yscale = _transform.YScale * yDir;
+		instance.image_angle = (parentInstance.image_angle + (_transform.Rotation * xDir));
+		instance.depth = parentInstance.depth + (_transform.Depth * xDir);
 	} else {
 		instance_destroy();	
 	}

@@ -6,8 +6,6 @@ var keyDown = keyboard_check(ord("S"));
 var keyRight = keyboard_check(ord("D"));
 var keyRun = keyboard_check(vk_shift);
 
-var _self = self;
-
 if (GetGUIStatement() != GUIStatement.Undefined) return;
 
 var hMove = keyRight - keyLeft;
@@ -32,7 +30,7 @@ speedVector.y = VerticalCollision(self);
 y += speedVector.y;
 
 // Animation
-image_xscale = speedVector.x != 0 ? sign(speedVector.x): image_xscale;
+image_xscale = speedVector.x != 0 ? sign(speedVector.x) : image_xscale;
 if (hMove != 0) {
 	rightArmRotation += (rightArmRotationDir * armRotationStep);
 	leftArmRotation += (leftArmRotationDir * armRotationStep);
@@ -68,11 +66,13 @@ if (leftArmRotation >= maxArmRotation) {
 	leftArmRotationDir *= -1;
 }
 
+var xDir = sign(image_xscale);
+
 var rightArmTransform = transform.GetChildTransformByObject(obj_player_r_arm);
-rightArmTransform.SetRotation(rightArmRotation);
+rightArmTransform.Rotation = rightArmRotation * xDir;
 
 var leftArmTransform = transform.GetChildTransformByObject(obj_player_l_arm);
-leftArmTransform.SetRotation(leftArmRotation);
+leftArmTransform.Rotation = leftArmRotation * xDir;
 
 var maxLegRotation = 40;
 var minLegRotation = maxLegRotation * (-1);
@@ -96,9 +96,9 @@ if (leftLegRotation >= maxLegRotation) {
 }
 
 var rightLegTransform = transform.GetChildTransformByObject(obj_player_r_leg);
-rightLegTransform.SetRotation(rightLegRotation);
+rightLegTransform.Rotation = rightLegRotation * xDir;
 
 var leftLegTransform = transform.GetChildTransformByObject(obj_player_l_leg);
-leftLegTransform.SetRotation(leftLegRotation);
+leftLegTransform.Rotation = leftLegRotation * xDir;
 
 transform.UpdateTransform();

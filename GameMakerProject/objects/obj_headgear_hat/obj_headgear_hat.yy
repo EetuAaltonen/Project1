@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_player_head",
-    "path": "sprites/spr_player_head/spr_player_head.yy",
+    "name": "spr_headgear_top_hat",
+    "path": "sprites/spr_headgear_top_hat/spr_headgear_top_hat.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,11 +27,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Player",
-    "path": "folders/Objects/Player.yy",
+    "name": "Headgear",
+    "path": "folders/Objects/Equipment/Headgear.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_player_head",
+  "name": "obj_headgear_hat",
   "tags": [],
   "resourceType": "GMObject",
 }
