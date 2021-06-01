@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Physics",
-    "path": "folders/Scripts/Physics.yy",
+    "name": "BodyParts",
+    "path": "folders/Scripts/Character/Player/BodyParts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_vector",
+  "name": "scr_player_body_parts",
   "tags": [],
   "resourceType": "GMScript",
 }

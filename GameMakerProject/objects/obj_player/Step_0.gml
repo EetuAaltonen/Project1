@@ -1,10 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
-keyUp = keyboard_check(ord("W"));
-keyLeft = keyboard_check(ord("A"));
-keyDown = keyboard_check(ord("S"));
-keyRight = keyboard_check(ord("D"));
-keyRun = keyboard_check(vk_shift);
+var keyUp = keyboard_check(ord("W"));
+var keyLeft = keyboard_check(ord("A"));
+var keyDown = keyboard_check(ord("S"));
+var keyRight = keyboard_check(ord("D"));
+var keyRun = keyboard_check(vk_shift);
+
+var _self = self;
 
 if (GetGUIStatement() != GUIStatement.Undefined) return;
 
@@ -12,14 +14,17 @@ var hMove = keyRight - keyLeft;
 
 // Run or Walk
 speedVector.x = keyRun ? hMove * runSpeed : hMove * walkSpeed;
-
 speedVector.x = HorizontalCollision(self);
 x += speedVector.x;
 
 // Jump
 if (IsGrounded(self) && keyUp) {
 	speedVector.y -= jumpSpeed;
-	headgearOffsetDir = 1;
+	if (instance_exists(obj_player_head)) {
+		with (obj_player_head)	{
+			headgearOffsetDir = 1;	
+		}
+	}
 }
 
 speedVector.y += global.GRAVITY
@@ -63,6 +68,12 @@ if (leftArmRotation >= maxArmRotation) {
 	leftArmRotationDir *= -1;
 }
 
+var rightArmTransform = transform.GetChildTransformByObject(obj_player_r_arm);
+rightArmTransform.SetRotation(rightArmRotation);
+
+var leftArmTransform = transform.GetChildTransformByObject(obj_player_l_arm);
+leftArmTransform.SetRotation(leftArmRotation);
+
 var maxLegRotation = 40;
 var minLegRotation = maxLegRotation * (-1);
 
@@ -84,11 +95,10 @@ if (leftLegRotation >= maxLegRotation) {
 	leftLegRotationDir *= -1;
 }
 
-// Headgear
-headgearOffset += (headgearOffsetStep * headgearOffsetDir);
-if (headgearOffset >= headgearMaxOffset) {
-	headgearOffset = headgearMaxOffset;
-	headgearOffsetDir = -1;
-} else if (headgearOffset <= headgearDefaultOffset) {
-	headgearOffset = headgearDefaultOffset;
-}
+var rightLegTransform = transform.GetChildTransformByObject(obj_player_r_leg);
+rightLegTransform.SetRotation(rightLegRotation);
+
+var leftLegTransform = transform.GetChildTransformByObject(obj_player_l_leg);
+leftLegTransform.SetRotation(leftLegRotation);
+
+transform.UpdateTransform();
