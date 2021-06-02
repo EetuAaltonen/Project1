@@ -1,6 +1,7 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+/*
+	Insert description here
+*/
 enum GUIStatement {
-	Undefined,
 	ActionMenu,
+	Inventory,
 }

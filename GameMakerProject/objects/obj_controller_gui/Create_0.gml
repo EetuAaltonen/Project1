@@ -1,3 +1,3 @@
 /// @description Insert description here
-guiStatement = GUIStatement.Undefined;
+guiStatement = undefined;
 hotbarData = new HotbarData(undefined, undefined);

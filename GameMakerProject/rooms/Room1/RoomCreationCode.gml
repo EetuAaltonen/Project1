@@ -1,7 +1,8 @@
 var controllers = [
 	obj_controller_game,
 	obj_controller_gui,
-	obj_controller_interaction
+	obj_controller_interaction,
+	obj_controller_inventory
 ];
 var controllerLayer = layer_get_id("Controllers");
 var arrayLength = array_length(controllers);

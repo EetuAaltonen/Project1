@@ -6,7 +6,7 @@ var keyDown = keyboard_check(ord("S"));
 var keyRight = keyboard_check(ord("D"));
 var keyRun = keyboard_check(vk_shift);
 
-if (GetGUIStatement() != GUIStatement.Undefined) return;
+if (!is_undefined(GetGUIStatement())) return;
 
 var hMove = keyRight - keyLeft;
 

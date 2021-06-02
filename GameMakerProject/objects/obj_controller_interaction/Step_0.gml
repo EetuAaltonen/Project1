@@ -11,14 +11,14 @@ if (highlightedObject != noone) {
 	if (!instance_exists(highlightedObject) || !instance_exists(player)) {
 		ResetInteraction();
 	} else {
-		if (GetGUIStatement() == GUIStatement.Undefined && interactionKeyReleased) {
+		if (is_undefined(GetGUIStatement()) && interactionKeyReleased) {
 			selectedMenuIndex = 0;
 			SetGUIStatement(GUIStatement.ActionMenu);
 		} else if (GetGUIStatement() == GUIStatement.ActionMenu) {
 			var listSize = ds_list_size(interactionMenuValues);
 			if (interactionKeyReleased) {
 				selectedMenuIndex = 0;
-				SetGUIStatement(GUIStatement.Undefined);
+				ResetGUIStatement();
 			} else if (menuKeyUp) {
 				selectedMenuIndex = --selectedMenuIndex < 0 ? listSize - 1 : selectedMenuIndex;
 			} else if (menuKeyDown) {
@@ -26,7 +26,7 @@ if (highlightedObject != noone) {
 			} else if (menuKeySelect) {
 				var selectedInteraction	= highlightedObject.interactions[selectedMenuIndex];
 				InteractionPushObject(player, highlightedObject);
-				SetGUIStatement(GUIStatement.Undefined);
+				ResetGUIStatement();
 				ResetInteraction();
 			}
 		}
