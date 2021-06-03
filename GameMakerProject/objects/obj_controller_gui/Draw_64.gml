@@ -27,14 +27,16 @@ if (!is_undefined(hotbarData.PrimaryItem)) {
 switch (guiStatement) {
 	case GUIStatement.Inventory: {
 		var bgSprite = spr_gui_inventory_bg;
-		var spriteSize = sprite_get_width(bgSprite);
 		var margin = new Margin(30, 50, 30, 100);
-		var bgXScale = (guiWidth - margin.Left - margin.Right) / spriteSize;
-		var bgYScale = (guiHeight - margin.Top - margin.Bottom) / spriteSize;
+		var bgSize = new Size (
+			(guiWidth - margin.Left - margin.Right),
+			(guiHeight - margin.Top - margin.Bottom)
+		);
+		var bgSpriteScale = StrechSpriteNineSliceScale(bgSprite, bgSize);
 		var bgAlpha = 0.8;
 		draw_sprite_ext(
 			bgSprite, 0,
-			margin.Left, margin.Top, bgXScale, bgYScale,
+			margin.Left, margin.Top, bgSpriteScale.Horizontal, bgSpriteScale.Vertical,
 			0, c_white, bgAlpha
 		);
 		
