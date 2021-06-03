@@ -17,15 +17,22 @@ if (highlightedObject != noone) {
 		} else if (GetGUIStatement() == GUIStatement.ActionMenu) {
 			var listSize = ds_list_size(interactionMenuValues);
 			if (interactionKeyReleased) {
-				selectedMenuIndex = 0;
 				ResetGUIStatement();
 			} else if (menuKeyUp) {
 				selectedMenuIndex = --selectedMenuIndex < 0 ? listSize - 1 : selectedMenuIndex;
 			} else if (menuKeyDown) {
 				selectedMenuIndex = ++selectedMenuIndex >= listSize ? 0 : selectedMenuIndex;
 			} else if (menuKeySelect) {
-				var selectedInteraction	= highlightedObject.interactions[selectedMenuIndex];
-				InteractionPushObject(player, highlightedObject);
+				var interaction	= highlightedObject.interactions[selectedMenuIndex];
+				switch (interaction) {
+					case Interaction.Collect: {
+						AddInventoryItem(highlightedObject.item);
+						instance_destroy(highlightedObject);
+					} break;
+					case Interaction.Push: {
+						InteractionPushObject(player, highlightedObject);
+					} break;
+				}
 				ResetGUIStatement();
 				ResetInteraction();
 			}

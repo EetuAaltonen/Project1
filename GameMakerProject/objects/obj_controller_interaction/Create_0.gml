@@ -1,6 +1,6 @@
 /// @description Insert description here
-// You can write your code in this editor
 highlightedObject = noone;
-highlightCooldown = 1 * room_speed;
-selectedMenuIndex = 0;
+highlightCooldown = 1 * room_speed; //1s
+
 interactionMenuValues = undefined;
+selectedMenuIndex = 0;

@@ -1,5 +1,55 @@
 /*
 	Insert description here
+	return: 
+*/
+function GetInteractionMap() {
+	var  map = ds_map_create();
+	map [? "Lift"] = Interaction.Lift;
+	map [? "Push"] = Interaction.Push;
+	map [? "Collect"] = Interaction.Collect;
+	
+	return map;
+}
+
+/*
+	Insert description here
+*/
+function CheckInteractionHighlightSelf(_self) {
+	if (instance_exists(obj_player)) {
+		if (IsHighlighted(_self)) {
+			if (distance_to_object(obj_player) > 20) {
+				if (IsHighlighted(_self)) {
+					ResetInteraction();
+				}
+			}
+		} else {
+			if (distance_to_object(obj_player) <= 20) {
+				SetInteractionHighlight(_self);
+			}
+		}
+	}
+}
+
+/*
+	Insert description here
+*/
+function DrawInteractionHighlightSelf(_self) {
+	// Highlight shader
+	var highlightShader = sh_highlight_self;
+	shader_set(highlightShader);
+
+	var texture = sprite_get_texture(_self.sprite_index, _self.image_index);
+	var textureWidth = texture_get_texel_width(texture);
+	var textureHeight = texture_get_texel_height(texture);
+	var uniformHandle = shader_get_uniform(highlightShader, "texture_Pixel");
+	shader_set_uniform_f(uniformHandle, textureWidth, textureHeight);
+	draw_self();
+
+	shader_reset();
+}
+
+/*
+	Insert description here
 */
 function SetInteractionHighlight(_object){
 	var controller = obj_controller_interaction;
@@ -52,7 +102,7 @@ function ResetInteraction() {
 		with (controller) {
 			highlightedObject = noone;
 			interactionMenuValues = undefined;
-			selectedMenuIndex = 0;	
+			selectedMenuIndex = 0;
 		}
 	}
 }

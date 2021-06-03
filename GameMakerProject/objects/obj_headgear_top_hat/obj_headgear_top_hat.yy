@@ -31,7 +31,7 @@
     "path": "folders/Objects/Equipment/Headgear.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_headgear_hat",
+  "name": "obj_headgear_top_hat",
   "tags": [],
   "resourceType": "GMObject",
 }

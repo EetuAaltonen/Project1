@@ -6,6 +6,7 @@ var guiStatement = GetGUIStatement();
 if (is_undefined(guiStatement)) {
 	if (inventoryKey) {
 		SetGUIStatement(GUIStatement.Inventory);
+		inventoryRenderData = GetInventoryAllItems();
 	}
 } else {
 	if (inventoryKey || escKey) {

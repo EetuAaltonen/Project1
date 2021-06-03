@@ -1,0 +1,1 @@
+item = GetItemBySprite(spr_shield_iron);

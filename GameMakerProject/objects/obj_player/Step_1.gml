@@ -7,7 +7,7 @@ if (createAllChild) {
 	UpdateHotbarPrimaryItem(item);
 
 	var head = transform.GetChildTransformByObject(obj_player_head);
-	head.AddChild(new Transform(obj_headgear_hat, undefined, head, TransFuncPlayerLimb, new Vector2(0, -28), 1, 1, 0, -1));
+	head.AddChild(new Transform(obj_headgear_top_hat, undefined, head, TransFuncPlayerLimb, new Vector2(0, -28), 1, 1, 0, -1));
 	
 	transform.CreateAllChild();
 }

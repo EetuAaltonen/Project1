@@ -69,14 +69,27 @@ function UpdateHotbarPrimaryItem(_item) {
 	return:
 */
 function DrawItemOnHotbarSlot(_item, _xSlotPos, _ySlotPos, _slotWidth, _slotHeight) {
-	var itemSprite = _item.Sprite;
-	var xSprOrigin = sprite_get_xoffset(itemSprite);
-	var ySprOrigin = sprite_get_yoffset(itemSprite);
-	var sprWidth = sprite_get_width(itemSprite);
-	var sprHeight = sprite_get_height(itemSprite);
+	var sprCenterMargin = GetSpriteCenterMargin(_item.Sprite);
+	var newXPos = _xSlotPos + floor(_slotWidth / 2) + sprCenterMargin.Left;
+	var newYPos = _ySlotPos + floor(_slotHeight / 2) + sprCenterMargin.Top;
 	
-	var newXPos = _xSlotPos + floor(_slotWidth / 2) - (floor(sprWidth / 2) - xSprOrigin);
-	var newYPos = _ySlotPos + floor(_slotHeight / 2) - (floor(sprHeight / 2) - ySprOrigin);
+	draw_sprite(_item.Sprite, 0, newXPos, newYPos);
+}
+
+/*
+	Insert description here
+	param: _sprite
+	param: _speed - Insert description here
+	return:
+*/
+function GetSpriteCenterMargin(_sprite) {
+	var xSprOrigin = sprite_get_xoffset(_sprite);
+	var ySprOrigin = sprite_get_yoffset(_sprite);
+	var sprWidth = sprite_get_width(_sprite);
+	var sprHeight = sprite_get_height(_sprite);
 	
-	draw_sprite(itemSprite, 0, newXPos, newYPos);
+	var leftMargin = -(floor(sprWidth / 2) - xSprOrigin);
+	var topMargin = -(floor(sprHeight / 2) - ySprOrigin);
+	
+	return new Margin(leftMargin, topMargin, 0, 0);
 }

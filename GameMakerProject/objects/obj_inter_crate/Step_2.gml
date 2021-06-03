@@ -1,2 +1,2 @@
 /// @description Insert description here
-inventory = new Inventory();
+CheckInteractionHighlightSelf(self);
