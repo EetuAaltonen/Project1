@@ -7,7 +7,7 @@ function GetAllGUIButtonGroupMap() {
 	
 	var inventoryControls = new GUIButtonGroup(GUIButtonGroupIndex.InventoryControls);
 		inventoryControls.AddGUIButton(new GUIButton(
-			spr_gui_inventory_bg, new Vector2(800, 100), new Size(100, 40),
+			spr_gui_button_inventory, new Vector2(1220, 70), new Size(100, 40),
 			"Close", GetFontPresetByKey(FontPreset.GeneralMedium), undefined, "TestButton",
 			undefined, ButtonFuncResetGUIStatement
 		));

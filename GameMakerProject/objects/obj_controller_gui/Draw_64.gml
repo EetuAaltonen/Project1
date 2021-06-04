@@ -6,12 +6,10 @@ var inventoryFont = GetFontPresetByKey(FontPreset.GeneralMedium);
 
 var margin = 10;
 var sprItemSlot = spr_gui_item_slot;
-var slotWidth = sprite_get_width(sprItemSlot);
-var slotHeight = sprite_get_height(sprItemSlot);
-var guiWidth = display_get_gui_width();
-var guiHeight = display_get_gui_height();
-var xPos = guiWidth / 2;
-var yPos = guiHeight - slotHeight - margin;
+var slotSize = GetSpriteSize(sprItemSlot);
+var guiSize = GetGUISize();
+var xPos = guiSize.Width / 2;
+var yPos = guiSize.Height - slotSize.Height - margin;
 
 SetFontDraw(hotbarFont);
 draw_set_valign(fa_top);
@@ -21,7 +19,7 @@ draw_sprite(sprItemSlot, 0, xPos, yPos);
 draw_text(xPos + 8, yPos + 5, "R");
 
 if (!is_undefined(hotbarData.PrimaryItem)) {
-	DrawItemOnHotbarSlot(hotbarData.PrimaryItem, xPos, yPos, slotWidth, slotHeight);
+	DrawItemOnHotbarSlot(hotbarData.PrimaryItem, xPos, yPos, slotSize.Width, slotSize.Height);
 }
 
 switch (guiStatement) {
@@ -29,8 +27,8 @@ switch (guiStatement) {
 		var bgSprite = spr_gui_inventory_bg;
 		var margin = new Margin(30, 50, 30, 100);
 		var bgSize = new Size (
-			(guiWidth - margin.Left - margin.Right),
-			(guiHeight - margin.Top - margin.Bottom)
+			(guiSize.Width - margin.Left - margin.Right),
+			(guiSize.Height - margin.Top - margin.Bottom)
 		);
 		var bgSpriteScale = StrechSpriteNineSliceScale(bgSprite, bgSize);
 		var bgAlpha = 0.8;
