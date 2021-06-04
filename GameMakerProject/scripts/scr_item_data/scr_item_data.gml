@@ -20,5 +20,5 @@ function GetAllItemMap() {
 function GetItemBySprite(_sprite) {
 	var itemMap = GetAllItemMap();
 	var spriteName = sprite_get_name(_sprite);
-	return ds_map_find_value(itemMap, spriteName)
+	return ds_map_find_value(itemMap, spriteName);
 }

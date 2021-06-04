@@ -5,12 +5,12 @@ var guiStatement = GetGUIStatement();
 
 if (is_undefined(guiStatement)) {
 	if (inventoryKey) {
-		SetGUIStatement(GUIStatement.Inventory);
+		RequestGUIStatementSet(GUIStatement.Inventory);
 		inventoryRenderData = GetInventoryAllItems();
 	}
 } else {
 	if (inventoryKey || escKey) {
-		if (guiStatement == GUIStatement.Inventory) { ResetGUIStatement(); }
+		if (guiStatement == GUIStatement.Inventory) { RequestGUIStatementReset(); }
 	}
 }
 

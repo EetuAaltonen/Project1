@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Enums.yy",
   },
   "resourceVersion": "1.0",
-  "name": "enum_font_styles",
+  "name": "enum_font_preset",
   "tags": [],
   "resourceType": "GMScript",
 }

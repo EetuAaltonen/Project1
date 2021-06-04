@@ -60,3 +60,15 @@ switch (guiStatement) {
 		}
 	} break;
 }
+
+var listSize = ds_list_size(guiButtonGroups);
+for (var i = 0; i < listSize; i++) {
+	var guiButtonGroup = ds_list_find_value(guiButtonGroups, i);
+	var groupSize = ds_list_size(guiButtonGroup.Buttons);
+	for (var j = 0; j < groupSize; j++) {
+		var guiButton = ds_list_find_value(guiButtonGroup.Buttons, j);
+		guiButton.Hovered();
+		guiButton.Clicked();
+		guiButton.Draw();
+	}
+}

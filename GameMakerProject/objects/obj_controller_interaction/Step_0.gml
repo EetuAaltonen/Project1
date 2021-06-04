@@ -13,11 +13,11 @@ if (highlightedObject != noone) {
 	} else {
 		if (is_undefined(GetGUIStatement()) && interactionKeyReleased) {
 			selectedMenuIndex = 0;
-			SetGUIStatement(GUIStatement.ActionMenu);
+			RequestGUIStatementSet(GUIStatement.ActionMenu);
 		} else if (GetGUIStatement() == GUIStatement.ActionMenu) {
 			var listSize = ds_list_size(interactionMenuValues);
 			if (interactionKeyReleased) {
-				ResetGUIStatement();
+				RequestGUIStatementReset();
 			} else if (menuKeyUp) {
 				selectedMenuIndex = --selectedMenuIndex < 0 ? listSize - 1 : selectedMenuIndex;
 			} else if (menuKeyDown) {
@@ -33,7 +33,7 @@ if (highlightedObject != noone) {
 						InteractionPushObject(player, highlightedObject);
 					} break;
 				}
-				ResetGUIStatement();
+				RequestGUIStatementReset();
 				ResetInteraction();
 			}
 		}

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "GUI",
-    "path": "folders/Scripts/GUI.yy",
+    "name": "Button Functions",
+    "path": "folders/Scripts/Button Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_gui",
+  "name": "scr_button_function",
   "tags": [],
   "resourceType": "GMScript",
 }
