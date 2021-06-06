@@ -15,7 +15,7 @@ function AddInventoryItem(_item) {
 	Insert description here
 	return:
 */
-function GetInventoryAllItems(_item) {
+function GetInventoryAllItems() {
 	var controller = obj_controller_inventory;
 	if (instance_exists(controller)) {
 		with (controller) {

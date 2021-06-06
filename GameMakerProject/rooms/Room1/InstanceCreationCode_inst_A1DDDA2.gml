@@ -1,1 +1,1 @@
-item = GetItemBySprite(spr_weapon_sword);
+sprite_index = spr_weapon_sword;

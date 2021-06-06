@@ -23,13 +23,13 @@ if (highlightedObject != noone) {
 			} else if (menuKeyDown) {
 				selectedMenuIndex = ++selectedMenuIndex >= listSize ? 0 : selectedMenuIndex;
 			} else if (menuKeySelect) {
-				var interaction	= highlightedObject.interactions[selectedMenuIndex];
-				switch (interaction) {
-					case Interaction.Collect: {
-						AddInventoryItem(highlightedObject.item);
+				var interaction = ds_list_find_value(interactionMenuValues, selectedMenuIndex);
+				switch (interaction.Index) {
+					case InteractionIndex.Collect: {
+						AddInventoryItem(highlightedObject.itemData);
 						instance_destroy(highlightedObject);
 					} break;
-					case Interaction.Push: {
+					case InteractionIndex.Push: {
 						InteractionPushObject(player, highlightedObject);
 					} break;
 				}

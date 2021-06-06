@@ -1,4 +1,4 @@
 /// @description Insert description here
-interactions = [Interaction.Collect];
-item = undefined;
+interactions = [InteractionIndex.Collect];
+itemData = undefined;
 updateItemData = true;

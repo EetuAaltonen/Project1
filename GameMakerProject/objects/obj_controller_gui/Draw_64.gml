@@ -1,8 +1,8 @@
 /// @description Insert description here
 var guiStatement = GetGUIStatement();
 
-var hotbarFont = GetFontPresetByKey(FontPreset.GeneralSmall);
-var inventoryFont = GetFontPresetByKey(FontPreset.GeneralMedium);
+var hotbarFont = GetDbFontPresetByIndex(FontPreset.GeneralSmall);
+var inventoryFont = GetDbFontPresetByIndex(FontPreset.GeneralMedium);
 
 var margin = 10;
 var sprItemSlot = spr_gui_item_slot;
@@ -43,17 +43,17 @@ switch (guiStatement) {
 			SetFontDraw(inventoryFont);
 			var listSize = ds_list_size(inventoryRenderData);
 			for (var i = 0; i < listSize; i++) {
-				var item = ds_list_find_value(inventoryRenderData, i);
+				var itemData = ds_list_find_value(inventoryRenderData, i);
 				var vMargin = 60;
 				var sprOffset = new Vector2(100, 100);
-				var sprCenterMargin = GetSpriteCenterMargin(item.Sprite);
+				var sprCenterMargin = GetSpriteCenterMargin(itemData.Sprite);
 				var textOffset = new Vector2(150, 100);
 				draw_sprite(
-					item.Sprite, 0,
+					itemData.Sprite, 0,
 					sprOffset.x + sprCenterMargin.Left,
 					sprOffset.y + (vMargin * i) + sprCenterMargin.Top
 				);
-				draw_text(textOffset.x, textOffset.y + (vMargin * i), item.Name);
+				draw_text(textOffset.x, textOffset.y + (vMargin * i), itemData.Name);
 			}
 		}
 	} break;

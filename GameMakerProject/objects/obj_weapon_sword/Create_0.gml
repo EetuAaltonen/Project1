@@ -1,2 +1,2 @@
 /// @description Insert description here
-item = GetItemBySprite(sprite_index);
+itemData = GetDbItemDataBySprite(sprite_index);

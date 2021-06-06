@@ -1,1 +1,1 @@
-item = GetItemBySprite(spr_shield_iron);
+sprite_index = spr_shield_iron;

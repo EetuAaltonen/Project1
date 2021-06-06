@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Buttons",
-    "path": "folders/Scripts/Buttons.yy",
+    "name": "Database",
+    "path": "folders/Scripts/Database.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_button_function",
+  "name": "db_font_preset",
   "tags": [],
   "resourceType": "GMScript",
 }

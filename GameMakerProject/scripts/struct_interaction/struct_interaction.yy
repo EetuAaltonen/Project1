@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Enums",
-    "path": "folders/Scripts/Enums.yy",
+    "name": "Structures",
+    "path": "folders/Scripts/Structures.yy",
   },
   "resourceVersion": "1.0",
-  "name": "enum_interaction",
+  "name": "struct_interaction",
   "tags": [],
   "resourceType": "GMScript",
 }

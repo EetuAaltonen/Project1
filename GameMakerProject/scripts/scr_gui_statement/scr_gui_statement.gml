@@ -26,12 +26,12 @@ function RequestGUIStatementSet(_guiStatement) {
 		with (controller) {
 			if (guiStatement != _guiStatement) {
 				RequestGUIStatementChange();
+				guiStatement = _guiStatement;
 				switch (_guiStatement) {
 					case GUIStatement.Inventory: {
 						OpenGUIStatementInventory();
 					} break;
 				}
-				guiStatement = _guiStatement;
 			}
 		}
 	}
@@ -69,8 +69,11 @@ function RequestGUIStatementChange() {
 	return:
 */
 function OpenGUIStatementInventory() {
-	var intentoryControls = GetGUIButtonGroupByIndex(GUIButtonGroupIndex.InventoryControls)
+	var intentoryControls = GetDbGUIButtonGroupByIndex(GUIButtonGroupIndex.InventoryControls);
 	AddGUIButtonGroupActive(intentoryControls);
+	
+	var inventoryItemList = GetDbGUIButtonGroupByIndex(GUIButtonGroupIndex.InventoryItemList);
+	AddGUIButtonGroupActive(inventoryItemList);
 }
 
 /*
@@ -79,4 +82,5 @@ function OpenGUIStatementInventory() {
 */
 function CloseGUIStatementInventory() {
 	RemoveGUIButtonGroupActiveByIndex(GUIButtonGroupIndex.InventoryControls);
+	RemoveGUIButtonGroupActiveByIndex(GUIButtonGroupIndex.InventoryItemList);
 }

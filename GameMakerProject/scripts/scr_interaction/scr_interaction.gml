@@ -1,18 +1,5 @@
 /*
 	Insert description here
-	return: 
-*/
-function GetInteractionMap() {
-	var  map = ds_map_create();
-	map [? "Lift"] = Interaction.Lift;
-	map [? "Push"] = Interaction.Push;
-	map [? "Collect"] = Interaction.Collect;
-	
-	return map;
-}
-
-/*
-	Insert description here
 */
 function CheckInteractionHighlightSelf(_self) {
 	if (instance_exists(obj_player)) {
@@ -59,7 +46,7 @@ function SetInteractionHighlight(_object){
 				with (controller) {
 					if (highlightedObject == noone) {
 						highlightedObject = _object;
-						interactionMenuValues = GetInteractionNameListByValueMap(_object.interactions);
+						interactionMenuValues = GetDbInteractionListByIndexArray(_object.interactions);
 						selectedMenuIndex = 0;
 					}
 				}

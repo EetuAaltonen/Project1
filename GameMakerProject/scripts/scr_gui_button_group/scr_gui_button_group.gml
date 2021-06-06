@@ -2,33 +2,6 @@
 	Insert description here
 	return:
 */
-function GetAllGUIButtonGroupMap() {
-	var buttonGroupMap = ds_map_create();
-	
-	var inventoryControls = new GUIButtonGroup(GUIButtonGroupIndex.InventoryControls);
-		inventoryControls.AddGUIButton(new GUIButton(
-			spr_gui_button_inventory, new Vector2(1220, 70), new Size(100, 40),
-			"Close", GetFontPresetByKey(FontPreset.GeneralMedium), undefined, "TestButton",
-			undefined, ButtonFuncResetGUIStatement
-		));
-	buttonGroupMap [? inventoryControls.Index] = inventoryControls;
-	
-	return buttonGroupMap;
-}
-
-/*
-	Insert description here
-	return:
-*/
-function GetGUIButtonGroupByIndex(_index) {
-	var buttonGroupMap = GetAllGUIButtonGroupMap();
-	return ds_map_find_value(buttonGroupMap, _index);
-}
-
-/*
-	Insert description here
-	return:
-*/
 function AddGUIButtonGroupActive(_guiButtonGroup) {
 	var controller = obj_controller_gui;
 	if (instance_exists(controller)) {
@@ -50,9 +23,10 @@ function RemoveGUIButtonGroupActiveByIndex(_index) {
 			for (var i = 0; i < listSize; i++) {
 				var buttonGroup = ds_list_find_value(guiButtonGroups, i);
 				if (buttonGroup.Index == _index) {
-					ds_list_delete(guiButtonGroups, i);	
+					ds_list_delete(guiButtonGroups, i);
+					break;
 				}
-			}	
+			}
 		}
-	}	
+	}
 }

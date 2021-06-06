@@ -3,4 +3,5 @@
 */
 enum GUIButtonGroupIndex {
 	InventoryControls,
+	InventoryItemList,
 }

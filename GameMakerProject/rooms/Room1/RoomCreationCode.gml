@@ -3,6 +3,7 @@ var controllers = [
 	obj_controller_gui,
 	obj_controller_interaction,
 	obj_controller_inventory,
+	obj_controller_database,
 	
 	//Debug
 	obj_controller_debug

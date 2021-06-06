@@ -1,5 +1,5 @@
 /// @description Insert description here
-if (!is_undefined(item) && updateItemData) {
+if (!is_undefined(sprite_index) && is_undefined(itemData) && updateItemData) {
 	updateItemData = false;
-	sprite_index = item.Sprite;
+	itemData = GetDbItemDataBySprite(sprite_index);
 }

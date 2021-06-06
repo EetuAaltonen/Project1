@@ -3,7 +3,8 @@
 	param: _primaryItem - Insert description here
 	param: _secondaryItem - Insert description here
 */
-function GUIButton(_sprite, _position, _size, _text, _textFont, _tooltip, _value, _hoverFunc, _clickFunc) constructor {
+function GUIButton(_buttonGroupIndex, _sprite, _position, _size, _text, _textFont, _tooltip, _value, _hoverFunc, _clickFunc) constructor {
+	ButtonGroupIndex = _buttonGroupIndex;
 	Sprite = _sprite;
 	Position = _position;
 	Size = _size;

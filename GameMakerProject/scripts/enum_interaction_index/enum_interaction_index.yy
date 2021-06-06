@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Interaction",
-    "path": "folders/Scripts/Interaction.yy",
+    "name": "Enums",
+    "path": "folders/Scripts/Enums.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_interaction_name_resolver",
+  "name": "enum_interaction_index",
   "tags": [],
   "resourceType": "GMScript",
 }

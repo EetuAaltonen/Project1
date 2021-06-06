@@ -1,5 +1,5 @@
 /// Insert description here
-enum Interaction {
+enum InteractionIndex {
 	Lift,
 	Push,
 	Collect,
