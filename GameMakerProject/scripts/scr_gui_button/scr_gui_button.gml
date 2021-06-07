@@ -12,28 +12,3 @@ function IsGUIButtonHovered(_button) {
 		_button.Position.y + _button.Size.Height
 	);
 }
-
-/*
-	Insert description here
-	param: _angle - Insert description here
-	param: _speed - Insert description here
-	return:
-*/
-function DrawGUIButton(_button) {
-	var sprScale = StrechSpriteNineSliceScale(_button.Sprite, _button.Size);
-	draw_sprite_ext(
-		_button.Sprite, 0,
-		_button.Position.x, _button.Position.y,
-		sprScale.Horizontal, sprScale.Vertical,
-		0, c_white, 1
-	);
-	SetFontDraw(_button.TextFont);
-	draw_set_halign(fa_center);
-	if (!is_undefined(_button.Text)) {
-		var textPos = new Vector2(
-			_button.Position.x + (_button.Size.Width / 2),
-			_button.Position.y + (_button.Size.Height / 2)
-		);
-		draw_text(textPos.x, textPos.y, _button.Text);
-	}
-}

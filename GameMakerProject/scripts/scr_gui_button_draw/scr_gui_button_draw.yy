@@ -3,10 +3,10 @@
   "isCompatibility": false,
   "parent": {
     "name": "Buttons",
-    "path": "folders/Scripts/Buttons.yy",
+    "path": "folders/Scripts/GUI/Buttons.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_button_function",
+  "name": "scr_gui_button_draw",
   "tags": [],
   "resourceType": "GMScript",
 }

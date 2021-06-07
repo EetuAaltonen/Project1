@@ -1,9 +1,6 @@
 /// @description Insert description here
 var guiStatement = GetGUIStatement();
 
-var hotbarFont = GetDbFontPresetByIndex(FontPreset.GeneralSmall);
-var inventoryFont = GetDbFontPresetByIndex(FontPreset.GeneralMedium);
-
 var margin = 10;
 var sprItemSlot = spr_gui_item_slot;
 var slotSize = GetSpriteSize(sprItemSlot);
@@ -24,6 +21,7 @@ if (!is_undefined(hotbarData.PrimaryItem)) {
 
 switch (guiStatement) {
 	case GUIStatement.Inventory: {
+		// Inventory background
 		var bgSprite = spr_gui_inventory_bg;
 		var margin = new Margin(30, 50, 30, 100);
 		var bgSize = new Size (
@@ -37,25 +35,6 @@ switch (guiStatement) {
 			margin.Left, margin.Top, bgSpriteScale.Horizontal, bgSpriteScale.Vertical,
 			0, c_white, bgAlpha
 		);
-		
-		// Render items
-		if (!is_undefined(inventoryRenderData)) {
-			SetFontDraw(inventoryFont);
-			var listSize = ds_list_size(inventoryRenderData);
-			for (var i = 0; i < listSize; i++) {
-				var itemData = ds_list_find_value(inventoryRenderData, i);
-				var vMargin = 60;
-				var sprOffset = new Vector2(100, 100);
-				var sprCenterMargin = GetSpriteCenterMargin(itemData.Sprite);
-				var textOffset = new Vector2(150, 100);
-				draw_sprite(
-					itemData.Sprite, 0,
-					sprOffset.x + sprCenterMargin.Left,
-					sprOffset.y + (vMargin * i) + sprCenterMargin.Top
-				);
-				draw_text(textOffset.x, textOffset.y + (vMargin * i), itemData.Name);
-			}
-		}
 	} break;
 }
 

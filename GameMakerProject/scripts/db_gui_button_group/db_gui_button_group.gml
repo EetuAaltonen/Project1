@@ -16,13 +16,19 @@ function CreateDbGUIButtonGroupMap() {
 			if (button.ButtonGroupIndex == buttonGroup.Index) {
 				switch (buttonGroup.Index) {
 					case GUIButtonGroupIndex.InventoryItemList: {
-						var itemsPerPage = 12;
+						var itemsPerPage = 10;
 						for (var k = 0; k < itemsPerPage; k++) {
-							buttonGroup.AddGUIButton(button);
+							buttonGroup.AddGUIButton(new GUIButton(
+								button.Index, button.ButtonGroupIndex,
+								button.Sprite, button.Position, button.Size,
+								button.Text, button.TextFont,
+								button.Tooltip, button.Value,
+								button.IsVisible, button.HoverFunc, button.ClickFunc
+							));
 						}
 					} break;
 					default: {
-						buttonGroup.AddGUIButton(button);	
+						buttonGroup.AddGUIButton(button);
 					}
 				}
 			}
@@ -60,7 +66,7 @@ function GetDbAllGUIButtonGroupArray() {
 */
 function GetDbAllGUIButtonArray() {
 	return [
-		new GUIButton(GUIButtonGroupIndex.InventoryControls, spr_gui_button_inventory, new Vector2(1220, 70), new Size(100, 40), "Close", GetDbFontPresetByIndex(FontPreset.GeneralMedium), undefined, "TestButton", undefined, ButtonFuncResetGUIStatement),
-		new GUIButton(GUIButtonGroupIndex.InventoryItemList, spr_gui_button_inventory_item, new Vector2(0, 0), new Size(500, 60), undefined, undefined, undefined, undefined, undefined, undefined)
+		new GUIButton(0, GUIButtonGroupIndex.InventoryControls, spr_gui_button_inventory, new Vector2(1220, 70), new Size(100, 40), "Close", GetDbFontPresetByIndex(FontPreset.GeneralMedium), undefined, "TestButton", true, undefined, ButtonFuncResetGUIStatement),
+		new GUIButton(0, GUIButtonGroupIndex.InventoryItemList, spr_gui_button_inventory_item, new Vector2(0, 0), new Size(500, 60), undefined, GetDbFontPresetByIndex(FontPreset.GeneralMedium), undefined, undefined, false, undefined, undefined)
 	];
 }

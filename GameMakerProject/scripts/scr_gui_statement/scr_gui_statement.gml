@@ -74,6 +74,11 @@ function OpenGUIStatementInventory() {
 	
 	var inventoryItemList = GetDbGUIButtonGroupByIndex(GUIButtonGroupIndex.InventoryItemList);
 	AddGUIButtonGroupActive(inventoryItemList);
+	
+	with (obj_controller_gui) {
+		inventoryPageIndex = 0;
+		inventoryRefresh = true;
+	}
 }
 
 /*
