@@ -4,3 +4,6 @@ highlightCooldown = 1 * room_speed; //1s
 
 interactionMenuValues = undefined;
 selectedMenuIndex = 0;
+
+// Fonts
+interactionMenuFont = undefined;

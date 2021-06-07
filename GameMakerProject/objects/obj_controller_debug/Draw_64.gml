@@ -3,7 +3,7 @@ var mousePos = GetGUIMousePos();
 var posString = string(mousePos.x) + ", " + string(mousePos.y);
 var guiSize = GetGUISize();
 
-SetFontDraw(GetDbFontPresetByIndex(FontPreset.GeneralSmall));
+SetFontDraw(debugFont);
 var yDir = mousePos.y > (guiSize.Height / 2) ? -1 : 1;
 if (mousePos.x > (guiSize.Width / 2)) {
 	draw_set_halign(fa_right);

@@ -5,7 +5,7 @@ if (highlightedObject != noone && !is_undefined(interactionMenuValues)
 	var guiPos = new Vector2(100, 100);
 	var margin = 20;
 	
-	SetFontDraw(GetDbFontPresetByIndex(FontPreset.GeneralMedium));
+	SetFontDraw(interactionMenuFont);
 	
 	var listSize = ds_list_size(interactionMenuValues);
 	for (var i = 0; i < listSize; i++) {

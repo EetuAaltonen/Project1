@@ -11,4 +11,4 @@ inventoryPageCount = 1;
 inventoryLastIndex = 0;
 
 // Fonts
-hotbarFont = GetDbFontPresetByIndex(FontPreset.GeneralSmall);
+hotbarFont = undefined;
