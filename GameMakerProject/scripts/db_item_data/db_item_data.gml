@@ -34,7 +34,11 @@ function GetDbItemDataBySprite(_sprite) {
 function GetDbAllItemDataArray() {
 	return [
 		new Item(spr_weapon_sword, "Sword"),
+		new Item(spr_weapon_knife, "Knife"),
 		new Item(spr_shield_iron, "Iron Shield"),
-		new Item(spr_headgear_top_hat, "Top Hat")
+		new Item(spr_headgear_top_hat, "Top Hat"),
+		new Item(spr_material_iron_bar, "Iron Bar"),
+		new Item(spr_material_gold_bar, "Gold Bar"),
+		new Item(spr_material_steel_bar, "Steel Bar")
 	];
 }
