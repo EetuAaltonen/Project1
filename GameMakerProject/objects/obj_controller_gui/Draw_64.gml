@@ -35,6 +35,8 @@ switch (guiStatement) {
 			margin.Left, margin.Top, bgSpriteScale.Horizontal, bgSpriteScale.Vertical,
 			0, c_white, bgAlpha
 		);
+		// Page index
+		draw_text(margin.Left + 10, margin.Top + 10, "Page: " + string(min(inventoryPageCount, inventoryPageIndex + 1)) + " / " + string(inventoryPageCount));
 	} break;
 }
 

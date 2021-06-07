@@ -9,6 +9,7 @@ inventoryRefresh = false;
 inventoryPageIndex = 0;
 inventoryPageCount = 1;
 inventoryLastIndex = 0;
+inventoryRenderDataSize = 0;
 
 // Fonts
 hotbarFont = undefined;

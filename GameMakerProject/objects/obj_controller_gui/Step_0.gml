@@ -1,4 +1,6 @@
 /// @description Insert description here
+var inventoryKeyNextPage = keyboard_check_released(ord("D"));
+var inventoryKeyPrevPage = keyboard_check_released(ord("A"));
 var inventoryKey = keyboard_check_released(vk_tab);
 var escKey = keyboard_check_released(vk_escape);
 var guiStatement = GetGUIStatement();
@@ -15,13 +17,26 @@ if (is_undefined(guiStatement)) {
 				RequestGUIStatementReset();
 			} else {
 				if (!is_undefined(inventoryRenderData)) {
+					var guiButtonGroup = GetGUIButtonGroupActiveByIndex(GUIButtonGroupIndex.InventoryItemList);
+					var itemsPerPage = ds_list_size(guiButtonGroup.Buttons);
+					
+					// Page change
+					inventoryPageCount = ceil(inventoryRenderDataSize / itemsPerPage);
+					if (inventoryKeyNextPage) {
+						inventoryPageIndex = ++inventoryPageIndex > (inventoryPageCount - 1) ? 0 : inventoryPageIndex;
+						inventoryRefresh = true;
+					} else if (inventoryKeyPrevPage) {
+						inventoryPageIndex = --inventoryPageIndex < 0 ? (inventoryPageCount - 1) : inventoryPageIndex;
+						inventoryRefresh = true;
+					}
+					
 					if (inventoryRefresh) {
 						inventoryRefresh = false;
-						var renderDataSize = ds_list_size(inventoryRenderData);
+						inventoryRenderDataSize = ds_list_size(inventoryRenderData);
+						inventoryLastIndex = min(itemsPerPage, (inventoryRenderDataSize - (inventoryPageIndex * itemsPerPage)));
+
+						// Create item list
 						var vMargin = 59;
-						var guiButtonGroup = GetGUIButtonGroupActiveByIndex(GUIButtonGroupIndex.InventoryItemList);
-						var itemsPerPage = ds_list_size(guiButtonGroup.Buttons);
-						inventoryLastIndex = min(itemsPerPage, (renderDataSize - (inventoryPageIndex * itemsPerPage)));
 						for (var i = 0; i < itemsPerPage; i++) {
 							var guiButton =	ds_list_find_value(guiButtonGroup.Buttons, i);
 							var isBeforeLastIndex = i < inventoryLastIndex;
