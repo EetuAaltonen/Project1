@@ -9,7 +9,9 @@ function CreateDbItemDataMap() {
 	
 	for (var i = 0; i < arrayLength; i++) {
 		var itemData = allItemData[i];
-		itemDataMap [? sprite_get_name(itemData.Sprite)] = itemData;
+		itemData.SpriteName = sprite_get_name(itemData.SpriteName);
+		itemData.ObjectName = !is_undefined(itemData.ObjectName) ? object_get_name(itemData.ObjectName) : itemData.ObjectName;
+		itemDataMap [? itemData.SpriteName] = itemData;
 	}	
 	
 	return itemDataMap;
@@ -32,13 +34,14 @@ function GetDbItemDataBySprite(_sprite) {
 	return:
 */
 function GetDbAllItemDataArray() {
+	// Sprite and object names are mapped afterward
 	return [
-		new Item(spr_weapon_sword, "Sword", EquipSlot.Primary, obj_weapon_sword),
-		new Item(spr_weapon_knife, "Knife", EquipSlot.Primary, obj_weapon_knife),
-		new Item(spr_shield_iron, "Iron Shield", EquipSlot.Secondary, obj_shield_iron),
-		new Item(spr_headgear_top_hat, "Top Hat", EquipSlot.Headgear, obj_headgear_top_hat),
-		new Item(spr_material_iron_bar, "Iron Bar", undefined, undefined),
-		new Item(spr_material_gold_bar, "Gold Bar", undefined, undefined),
-		new Item(spr_material_steel_bar, "Steel Bar", undefined, undefined)
+		new ItemData(spr_weapon_sword, obj_weapon_sword, "Sword", EquipSlot.Primary),
+		new ItemData(spr_weapon_knife, obj_weapon_knife, "Knife", EquipSlot.Primary),
+		new ItemData(spr_shield_iron, obj_shield_iron, "Iron Shield", EquipSlot.Secondary),
+		new ItemData(spr_headgear_top_hat, obj_headgear_top_hat, "Top Hat", EquipSlot.Headgear),
+		new ItemData(spr_material_iron_bar, undefined, "Iron Bar", undefined),
+		new ItemData(spr_material_gold_bar, undefined, "Gold Bar", undefined),
+		new ItemData(spr_material_steel_bar, undefined, "Steel Bar", undefined)
 	];
 }

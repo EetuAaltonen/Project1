@@ -16,7 +16,7 @@ draw_sprite(sprItemSlot, 0, xPos, yPos);
 draw_text(xPos + 8, yPos + 5, "R");
 
 if (!is_undefined(hotbarData.PrimaryItem)) {
-	DrawItemOnHotbarSlot(hotbarData.PrimaryItem, xPos, yPos, slotSize.Width, slotSize.Height);
+	DrawItemSpriteOnHotbarSlot(hotbarData.PrimaryItem.SpriteName, xPos, yPos, slotSize.Width, slotSize.Height);
 }
 
 switch (guiStatement) {

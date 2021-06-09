@@ -42,14 +42,15 @@ function DrawGUIButton(_button) {
 function DrawGUIButtonInventoryItem(_button) {
 	if (!is_undefined(_button.Value)) {			
 		var itemData = _button.Value;
+		var itemSprite = asset_get_index(itemData.SpriteName);
 		var sprOffset = new Vector2(50, 0);
-		var sprCenterMargin = GetSpriteCenterMargin(itemData.Sprite);
+		var sprCenterMargin = GetSpriteCenterMargin(itemSprite);
 		var textOffset = new Vector2(120, 0);
 		
 		SetFontDraw(_button.TextFont);
 		if (IsGUIButtonHovered(_button)) { draw_set_color(c_white); }
 		draw_sprite(
-			itemData.Sprite, 0,
+			itemSprite, 0,
 			_button.Position.x + sprOffset.x + sprCenterMargin.Left,
 			_button.Position.y + (_button.Size.Height / 2) + sprCenterMargin.Top
 		);

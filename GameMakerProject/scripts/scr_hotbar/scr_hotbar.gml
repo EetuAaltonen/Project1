@@ -4,18 +4,18 @@
 	param: _speed - Insert description here
 	return:
 */
-function DrawItemOnHotbarSlot(_item, _xSlotPos, _ySlotPos, _slotWidth, _slotHeight) {
-	var sprCenterMargin = GetSpriteCenterMargin(_item.Sprite);
+function DrawItemSpriteOnHotbarSlot(_spriteName, _xSlotPos, _ySlotPos, _slotWidth, _slotHeight) {
+	var itemSprite = asset_get_index(_spriteName);
+	var sprCenterMargin = GetSpriteCenterMargin(itemSprite);
 	var newXPos = _xSlotPos + floor(_slotWidth / 2) + sprCenterMargin.Left;
 	var newYPos = _ySlotPos + floor(_slotHeight / 2) + sprCenterMargin.Top;
 	
-	draw_sprite(_item.Sprite, 0, newXPos, newYPos);
+	draw_sprite(itemSprite, 0, newXPos, newYPos);
 }
 
 /*
 	Insert description here
-	param: _angle - Insert description here
-	param: _speed - Insert description here
+	param: _item - Insert description here
 	return:
 */
 function UpdateHotbarPrimaryItem(_item) {

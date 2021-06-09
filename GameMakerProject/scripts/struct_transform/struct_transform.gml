@@ -2,8 +2,8 @@
 	Insert description here
 	return:
 */
-function Transform(_object, _instance, _parent, _transformFunc, _offset, _scale, _rotation, _depth) constructor {
-	Object = _object;
+function Transform(_objectName, _instance, _parent, _transformFunc, _offset, _scale, _rotation, _depth) constructor {
+	ObjectName = _objectName;
 	Instance = _instance;
 	Parent = _parent;
 	TransformFunc = _transformFunc;
@@ -27,7 +27,8 @@ function Transform(_object, _instance, _parent, _transformFunc, _offset, _scale,
 		var listSize = ds_list_size(ChildList);
 		for (var i = 0; i < listSize; i++) {
 			var child = ds_list_find_value(ChildList, i);
-			var instance = instance_create_depth(Instance.x, Instance.y, Depth, child.Object);
+			var childObject = asset_get_index(child.ObjectName);
+			var instance = instance_create_depth(Instance.x, Instance.y, Depth, childObject);
 			child.Instance = instance;
 			child.UpdateTransform();
 			child.CreateAllChild();
@@ -38,7 +39,7 @@ function Transform(_object, _instance, _parent, _transformFunc, _offset, _scale,
 		Insert description here
 	*/
 	static UpdateTransform = function() {
-		if (instance_exists(Instance) && Object != noone && !is_undefined(TransformFunc) && script_exists(TransformFunc)) {
+		if (instance_exists(Instance) && !is_undefined(ObjectName) && !is_undefined(TransformFunc) && script_exists(TransformFunc)) {
 			script_execute(TransformFunc, self);
 		}
 		var listSize = ds_list_size(ChildList);
@@ -52,17 +53,17 @@ function Transform(_object, _instance, _parent, _transformFunc, _offset, _scale,
 		Insert description here
 		param: _object - Insert description here
 	*/
-	static GetChildTransformByObject = function(_object) {
+	static GetChildTransformByObjectName = function(_objectName) {
 		var childTransform = undefined;
 		var listSize = ds_list_size(ChildList);
 		for (var i = 0; i < listSize; i++) {
 			var child = ds_list_find_value(ChildList, i);
-			if (child.Object == _object) {
+			if (child.ObjectName == _objectName) {
 				childTransform = child;
 				break;
 			} else {
 				if (ds_list_size(child.ChildList) > 0) {
-					var iterateChild = child.GetChildTransformByObject(_object);
+					var iterateChild = child.GetChildTransformByObjectName(_objectName);
 					if (!is_undefined(iterateChild)) {
 						childTransform = iterateChild;
 						break;

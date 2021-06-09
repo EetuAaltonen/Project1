@@ -12,7 +12,7 @@
     {"id":{"name":"spr_weapon_sword","path":"sprites/spr_weapon_sword/spr_weapon_sword.yy",},"order":0,},
     {"id":{"name":"sh_highlight_self","path":"shaders/sh_highlight_self/sh_highlight_self.yy",},"order":0,},
     {"id":{"name":"fnt_general_small","path":"fonts/fnt_general_small/fnt_general_small.yy",},"order":1,},
-    {"id":{"name":"struct_item","path":"scripts/struct_item/struct_item.yy",},"order":3,},
+    {"id":{"name":"struct_item_data","path":"scripts/struct_item_data/struct_item_data.yy",},"order":3,},
     {"id":{"name":"db_interaction","path":"scripts/db_interaction/db_interaction.yy",},"order":3,},
     {"id":{"name":"struct_margin","path":"scripts/struct_margin/struct_margin.yy",},"order":4,},
     {"id":{"name":"spr_gui_item_slot","path":"sprites/spr_gui_item_slot/spr_gui_item_slot.yy",},"order":0,},

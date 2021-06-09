@@ -9,6 +9,7 @@ var keyRun = keyboard_check(vk_shift);
 if (!is_undefined(GetGUIStatement())) return;
 
 var hMove = keyRight - keyLeft;
+var objectName;
 
 // Run or Walk
 speedVector.x = keyRun ? hMove * runSpeed : hMove * walkSpeed;
@@ -63,10 +64,12 @@ if (leftArmRotation >= maxArmRotation) {
 
 var xDir = sign(image_xscale);
 
-var rightArmTransform = transform.GetChildTransformByObject(obj_player_r_arm);
+objectName = object_get_name(obj_player_r_arm);
+var rightArmTransform = transform.GetChildTransformByObjectName(objectName);
 rightArmTransform.Rotation = rightArmRotation * xDir;
 
-var leftArmTransform = transform.GetChildTransformByObject(obj_player_l_arm);
+objectName = object_get_name(obj_player_l_arm);
+var leftArmTransform = transform.GetChildTransformByObjectName(objectName);
 leftArmTransform.Rotation = leftArmRotation * xDir;
 
 var maxLegRotation = 40;
@@ -90,10 +93,12 @@ if (leftLegRotation >= maxLegRotation) {
 	leftLegRotationDir *= -1;
 }
 
-var rightLegTransform = transform.GetChildTransformByObject(obj_player_r_leg);
+objectName = object_get_name(obj_player_r_leg);
+var rightLegTransform = transform.GetChildTransformByObjectName(objectName);
 rightLegTransform.Rotation = rightLegRotation * xDir;
 
-var leftLegTransform = transform.GetChildTransformByObject(obj_player_l_leg);
+objectName = object_get_name(obj_player_l_leg);
+var leftLegTransform = transform.GetChildTransformByObjectName(objectName);
 leftLegTransform.Rotation = leftLegRotation * xDir;
 
 transform.UpdateTransform();

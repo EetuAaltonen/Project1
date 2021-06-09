@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Structures.yy",
   },
   "resourceVersion": "1.0",
-  "name": "struct_item",
+  "name": "struct_item_data",
   "tags": [],
   "resourceType": "GMScript",
 }

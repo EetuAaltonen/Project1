@@ -9,7 +9,8 @@ function CreateDbObjectTransformMap() {
 	
 	for (var i = 0; i < arrayLength; i++) {
 		var objectTransform = allObjectTransform[i];
-		objectTransformMap [? object_get_name(objectTransform.Object)] = objectTransform;
+		objectTransform.ObjectName = object_get_name(objectTransform.ObjectName);
+		objectTransformMap [? objectTransform.ObjectName] = objectTransform;
 	}	
 	
 	return objectTransformMap;
@@ -17,15 +18,14 @@ function CreateDbObjectTransformMap() {
 
 /*
 	Insert description here
-	param: _object - Insert description here
+	param: _objectName - Insert description here
 	return:
 */
-function GetDbObjectTransformByObject(_object) {
+function GetDbObjectTransformByObjectName(_objectName) {
 	with (obj_controller_database) {
-		var objectName = object_get_name(_object);
-		var objectTransform = ds_map_find_value(dbObjectTransformMap, objectName);
+		var objectTransform = ds_map_find_value(dbObjectTransformMap, _objectName);
 		return new Transform(
-			objectTransform.Object, objectTransform.Instance,
+			objectTransform.ObjectName, objectTransform.Instance,
 			objectTransform.Parent, objectTransform.TransformFunc,
 			objectTransform.Offset, objectTransform.Scale,
 			objectTransform.Rotation, objectTransform.Depth
@@ -38,6 +38,7 @@ function GetDbObjectTransformByObject(_object) {
 	return:
 */
 function GetDbAllObjectTransformArray() {
+	// Object names are mapped afterward
 	return [
 		new Transform(obj_weapon_sword, undefined, undefined, TransFuncPlayerLimb, new Vector2(0, 18), new Scale(1, 1), -80, -1),
 		new Transform(obj_weapon_knife, undefined, undefined, TransFuncPlayerLimb, new Vector2(0, 18), new Scale(1, 1), -80, -1),
