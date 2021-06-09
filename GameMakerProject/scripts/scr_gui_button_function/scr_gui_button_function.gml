@@ -20,5 +20,7 @@ function ButtonFuncSetGUIStatement(_guiStatement) {
 */
 function ClickedButtonFuncInventoryItem(_index) {
 	var item = GetInventoryItemByIndex(_index);
-	show_debug_message(item.Name);
+	if (!is_undefined(item.EquipSlot)) {
+		EquipInventoryItem(item);
+	}
 }

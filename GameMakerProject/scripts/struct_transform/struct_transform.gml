@@ -2,14 +2,13 @@
 	Insert description here
 	return:
 */
-function Transform(_object, _instance, _parent, _transformFunc, _offset, _xScale, _yScale, _rotation, _depth) constructor {
+function Transform(_object, _instance, _parent, _transformFunc, _offset, _scale, _rotation, _depth) constructor {
 	Object = _object;
 	Instance = _instance;
 	Parent = _parent;
 	TransformFunc = _transformFunc;
 	Offset = _offset;
-	XScale = _xScale;
-	YScale = _yScale;
+	Scale = _scale;
 	Rotation = _rotation;
 	Depth = _depth;
 	ChildList = ds_list_create();
@@ -28,8 +27,9 @@ function Transform(_object, _instance, _parent, _transformFunc, _offset, _xScale
 		var listSize = ds_list_size(ChildList);
 		for (var i = 0; i < listSize; i++) {
 			var child = ds_list_find_value(ChildList, i);
-			var instance = instance_create_layer(Instance.x, Instance.y, Instance.layer, child.Object);
+			var instance = instance_create_depth(Instance.x, Instance.y, Depth, child.Object);
 			child.Instance = instance;
+			child.UpdateTransform();
 			child.CreateAllChild();
 		}
     }
@@ -38,7 +38,7 @@ function Transform(_object, _instance, _parent, _transformFunc, _offset, _xScale
 		Insert description here
 	*/
 	static UpdateTransform = function() {
-		if (Object != noone && !is_undefined(TransformFunc) && script_exists(TransformFunc)) {
+		if (instance_exists(Instance) && Object != noone && !is_undefined(TransformFunc) && script_exists(TransformFunc)) {
 			script_execute(TransformFunc, self);
 		}
 		var listSize = ds_list_size(ChildList);
@@ -71,5 +71,20 @@ function Transform(_object, _instance, _parent, _transformFunc, _offset, _xScale
 			}
 		}
 		return childTransform;
+    }
+	
+	/*
+		Insert description here
+	*/
+	static RemoveAllChildTransform = function() {
+		var listSize = ds_list_size(ChildList);
+		for (var i = 0; i < listSize; i++) {
+			var child = ds_list_find_value(ChildList, i);
+			child.RemoveAllChildTransform();
+			with (child.Instance) {
+				instance_destroy();
+			}
+		}
+		ChildList = ds_list_create();
     }
 }
