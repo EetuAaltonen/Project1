@@ -18,11 +18,6 @@ x += speedVector.x;
 // Jump
 if (IsGrounded(self) && keyUp) {
 	speedVector.y -= jumpSpeed;
-	if (instance_exists(obj_player_head)) {
-		with (obj_player_head)	{
-			headgearOffsetDir = 1;	
-		}
-	}
 }
 
 speedVector.y += global.GRAVITY

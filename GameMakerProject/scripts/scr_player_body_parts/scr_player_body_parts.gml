@@ -23,12 +23,12 @@ function TransFuncPlayerLimb(_transform) {
 	if (instance_exists(parentInstance)) {
 		var xDir = sign(parentInstance.image_xscale);
 		var yDir = sign(parentInstance.image_yscale);
-		
 		var rotatedPos = _transform.Offset.Rotate(parentInstance.image_angle);
+		
 		instance.x = parentInstance.x + rotatedPos.x;
 		instance.y = parentInstance.y + rotatedPos.y;
-		instance.image_xscale = _transform.XScale * xDir;
-		instance.image_yscale = _transform.YScale * yDir;
+		instance.image_xscale = _transform.Scale.Horizontal * xDir;
+		instance.image_yscale = _transform.Scale.Vertical * yDir;
 		instance.image_angle = (parentInstance.image_angle + (_transform.Rotation * xDir));
 		instance.depth = parentInstance.depth + (_transform.Depth * xDir);
 	} else {

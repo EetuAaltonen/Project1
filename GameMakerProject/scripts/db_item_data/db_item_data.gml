@@ -33,12 +33,12 @@ function GetDbItemDataBySprite(_sprite) {
 */
 function GetDbAllItemDataArray() {
 	return [
-		new Item(spr_weapon_sword, "Sword"),
-		new Item(spr_weapon_knife, "Knife"),
-		new Item(spr_shield_iron, "Iron Shield"),
-		new Item(spr_headgear_top_hat, "Top Hat"),
-		new Item(spr_material_iron_bar, "Iron Bar"),
-		new Item(spr_material_gold_bar, "Gold Bar"),
-		new Item(spr_material_steel_bar, "Steel Bar")
+		new Item(spr_weapon_sword, "Sword", EquipSlot.Primary, obj_weapon_sword, TransFuncPlayerLimb, new Vector2(0, 18), new Scale(1, 1), -80, -1),
+		new Item(spr_weapon_knife, "Knife", EquipSlot.Primary, obj_weapon_knife, TransFuncPlayerLimb, new Vector2(0, 18), new Scale(1, 1), -80, -1),
+		new Item(spr_shield_iron, "Iron Shield", EquipSlot.Secondary, obj_shield_iron, TransFuncPlayerLimb, new Vector2(0, 18), new Scale(1, 1), -90, 1),
+		new Item(spr_headgear_top_hat, "Top Hat", EquipSlot.Headgear, obj_headgear_top_hat, TransFuncPlayerLimb, new Vector2(0, -28), new Scale(1, 1), 0, -1),
+		new Item(spr_material_iron_bar, "Iron Bar", undefined, undefined, TransFuncPlayerLimb, new Vector2(0, 0), new Scale(1, 1), 0, 1),
+		new Item(spr_material_gold_bar, "Gold Bar", undefined, undefined, TransFuncPlayerLimb, new Vector2(0, 0), new Scale(1, 1), 0, 1),
+		new Item(spr_material_steel_bar, "Steel Bar", undefined, undefined, TransFuncPlayerLimb, new Vector2(0, 0), new Scale(1, 1), 0, 1)
 	];
 }

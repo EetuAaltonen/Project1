@@ -1,16 +1,16 @@
 /// @description Insert description here
-transform = new Transform(obj_player, self, undefined, undefined, new Vector2(0, 0), 1, 1, 0, 0);
+transform = new Transform(obj_player, self, undefined, undefined, new Vector2(0, 0), new Scale(1, 1), 0, 0);
 speedVector = new Vector2(0, 0);
 walkSpeed = 4;
 runSpeed = 6;
 jumpSpeed = 8;
 
 // Create limbs
-transform.AddChild(new Transform(obj_player_head, undefined, transform, TransFuncPlayerHead, new Vector2(0, -24), 1, 1, 0, -1));
-transform.AddChild(new Transform(obj_player_r_arm, undefined, transform, TransFuncPlayerLimb, new Vector2(-2, -20), 1, 1, 0, -1));
-transform.AddChild(new Transform(obj_player_l_arm, undefined, transform, TransFuncPlayerLimb, new Vector2(2, -20), 1, 1, 0, 1));
-transform.AddChild(new Transform(obj_player_r_leg, undefined, transform, TransFuncPlayerLimb, new Vector2(-4, 4), 1, 1, 0, -1));
-transform.AddChild(new Transform(obj_player_l_leg, undefined, transform, TransFuncPlayerLimb, new Vector2(4, 4), 1, 1, 0, 1));
+transform.AddChild(new Transform(obj_player_head, undefined, transform, TransFuncPlayerHead, new Vector2(0, -24), new Scale(1, 1), 0, -1));
+transform.AddChild(new Transform(obj_player_r_arm, undefined, transform, TransFuncPlayerLimb, new Vector2(-2, -20), new Scale(1, 1), 0, -1));
+transform.AddChild(new Transform(obj_player_l_arm, undefined, transform, TransFuncPlayerLimb, new Vector2(2, -20), new Scale(1, 1), 0, 1));
+transform.AddChild(new Transform(obj_player_r_leg, undefined, transform, TransFuncPlayerLimb, new Vector2(-4, 4), new Scale(1, 1), 0, -1));
+transform.AddChild(new Transform(obj_player_l_leg, undefined, transform, TransFuncPlayerLimb, new Vector2(4, 4), new Scale(1, 1), 0, 1));
 
 createAllChild = true;
 

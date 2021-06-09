@@ -1,16 +1,10 @@
 {
-  "spriteId": {
-    "name": "spr_weapon_sword",
-    "path": "sprites/spr_weapon_sword/spr_weapon_sword.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "obj_equipment_parent",
-    "path": "objects/obj_equipment_parent/obj_equipment_parent.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -23,15 +17,18 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Weapons",
-    "path": "folders/Objects/Equipment/Weapons.yy",
+    "name": "Equipment",
+    "path": "folders/Objects/Equipment.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_weapon_sword",
+  "name": "obj_equipment_parent",
   "tags": [],
   "resourceType": "GMObject",
 }

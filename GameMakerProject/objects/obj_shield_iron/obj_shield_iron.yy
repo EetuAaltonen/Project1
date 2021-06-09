@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_weapon_sword",
-    "path": "sprites/spr_weapon_sword/spr_weapon_sword.yy",
+    "name": "spr_shield_iron",
+    "path": "sprites/spr_shield_iron/spr_shield_iron.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,11 +27,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Weapons",
-    "path": "folders/Objects/Equipment/Weapons.yy",
+    "name": "Shields",
+    "path": "folders/Objects/Equipment/Shields.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_weapon_sword",
+  "name": "obj_shield_iron",
   "tags": [],
   "resourceType": "GMObject",
 }

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_weapon_sword",
-    "path": "sprites/spr_weapon_sword/spr_weapon_sword.yy",
+    "name": "spr_weapon_knife",
+    "path": "sprites/spr_weapon_knife/spr_weapon_knife.yy",
   },
   "solid": false,
   "visible": true,
@@ -31,7 +31,7 @@
     "path": "folders/Objects/Equipment/Weapons.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_weapon_sword",
+  "name": "obj_weapon_knife",
   "tags": [],
   "resourceType": "GMObject",
 }
