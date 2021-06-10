@@ -23,15 +23,18 @@ function TransFuncPlayerLimb(_transform) {
 	if (instance_exists(parentInstance)) {
 		var xDir = sign(parentInstance.image_xscale);
 		var yDir = sign(parentInstance.image_yscale);
-		var rotatedPos = _transform.Offset.Rotate(parentInstance.image_angle);
 		
+		var animatedTransform = GetAnimationTransform(_transform);
+		if (is_undefined(animatedTransform)) { animatedTransform = _transform; }
+		
+		var rotatedPos = animatedTransform.Offset.Rotate(parentInstance.image_angle);
 		instance.x = parentInstance.x + rotatedPos.x;
 		instance.y = parentInstance.y + rotatedPos.y;
-		instance.image_xscale = _transform.Scale.Horizontal * xDir;
-		instance.image_yscale = _transform.Scale.Vertical * yDir;
-		instance.image_angle = (parentInstance.image_angle + (_transform.Rotation * xDir));
-		instance.depth = parentInstance.depth + (_transform.Depth * xDir);
+		instance.image_xscale = animatedTransform.Scale.Horizontal * xDir;
+		instance.image_yscale = animatedTransform.Scale.Vertical * yDir;
+		instance.image_angle = (parentInstance.image_angle + (animatedTransform.Rotation * xDir));
+		instance.depth = parentInstance.depth + (animatedTransform.Depth * xDir);
 	} else {
-		instance_destroy();	
+		instance_destroy();
 	}
 }

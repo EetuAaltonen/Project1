@@ -11,7 +11,16 @@ function Transform(_objectName, _instance, _parent, _transformFunc, _offset, _sc
 	Scale = _scale;
 	Rotation = _rotation;
 	Depth = _depth;
+	Animator = noone;
 	ChildList = ds_list_create();
+	
+	/*
+		Insert description here
+	*/
+	static BindAnimator = function(_animator) {
+		Animator = _animator;
+		Animator.transformInstance = Instance;
+    }
 	
 	/*
 		Insert description here
@@ -26,12 +35,16 @@ function Transform(_objectName, _instance, _parent, _transformFunc, _offset, _sc
 	static CreateAllChild = function() {
 		var listSize = ds_list_size(ChildList);
 		for (var i = 0; i < listSize; i++) {
-			var child = ds_list_find_value(ChildList, i);
-			var childObject = asset_get_index(child.ObjectName);
+			var childTransform = ds_list_find_value(ChildList, i);
+			var childObject = asset_get_index(childTransform.ObjectName);
 			var instance = instance_create_depth(Instance.x, Instance.y, Depth, childObject);
-			child.Instance = instance;
-			child.UpdateTransform();
-			child.CreateAllChild();
+			childTransform.Instance = instance;
+			if (instance_exists(childTransform.Animator)) {
+				childTransform.Animator.transformInstance = childTransform.Instance;
+			}
+			InitAnimator(childTransform);
+			childTransform.UpdateTransform();
+			childTransform.CreateAllChild();
 		}
     }
 	
