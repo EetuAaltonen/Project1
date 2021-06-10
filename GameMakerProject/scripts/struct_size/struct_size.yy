@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Structures",
-    "path": "folders/Scripts/Structures.yy",
+    "name": "Dimensions",
+    "path": "folders/Scripts/Structures/Dimensions.yy",
   },
   "resourceVersion": "1.0",
   "name": "struct_size",
