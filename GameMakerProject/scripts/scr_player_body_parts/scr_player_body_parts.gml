@@ -24,7 +24,7 @@ function TransFuncPlayerLimb(_transform) {
 		var xDir = sign(parentInstance.image_xscale);
 		var yDir = sign(parentInstance.image_yscale);
 		
-		var animatedTransform = GetAnimationTransform(_transform);
+		var animatedTransform = GetAnimatedTransform(_transform);
 		if (is_undefined(animatedTransform)) { animatedTransform = _transform; }
 		
 		var rotatedPos = animatedTransform.Offset.Rotate(parentInstance.image_angle);

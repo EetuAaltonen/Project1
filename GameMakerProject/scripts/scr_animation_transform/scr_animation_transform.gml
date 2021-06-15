@@ -3,7 +3,7 @@
 	param: _transform - Insert description here
 	return:
 */
-function GetAnimationTransform(_transform) {
+function GetAnimatedTransform(_transform) {
 	var animatedTransform = undefined;
 	if (instance_exists(_transform.Animator)) {
 		with (_transform.Animator) {
