@@ -12,15 +12,15 @@ function CreateDbAnimationBindingMap() {
 		var animationBinding = allAnimationBinding[i];
 		var objectName = object_get_name(animationBinding.ObjectName);
 		if (ds_list_find_index(bindedObjectNameList, objectName) < 0) {
-			var animationIndexList = ds_list_create();
+			var animationBindingList = ds_list_create();
 			for (var j = i; j < arrayLength; j++) {
 				var binding = allAnimationBinding[j];
 				if (object_get_name(binding.ObjectName) == objectName) {
-					ds_list_add(animationIndexList, binding.AnimationIndex);
+					ds_list_add(animationBindingList, binding);
 				}
 			}
 			ds_list_add(bindedObjectNameList, objectName);
-			animationBindingMap [? objectName] = animationIndexList;
+			animationBindingMap [? objectName] = animationBindingList;
 		}
 	}	
 	
@@ -34,15 +34,16 @@ function CreateDbAnimationBindingMap() {
 */
 function GetDbAnimationListByObjectName(_objectName) {
 	with (obj_controller_database) {
-		var animationIndexList = ds_map_find_value(dbAnimationBindingMap, _objectName);
+		var animationBindingList = ds_map_find_value(dbAnimationBindingMap, _objectName);
 		var animationList = ds_list_create();
 		
-		if (!is_undefined(animationIndexList)) {
-			var listSize = ds_list_size(animationIndexList);
+		if (!is_undefined(animationBindingList)) {
+			var listSize = ds_list_size(animationBindingList);
 		
 			for (var i = 0; i < listSize; i++) {
-				var animationIndex = ds_list_find_value(animationIndexList, i);
-				var animation = GetDbAnimationByAnimationIndex(animationIndex);
+				var animationBinding = ds_list_find_value(animationBindingList, i);
+				var animation = GetDbAnimationByAnimationIndex(animationBinding.AnimationIndex);
+				animation.TriggerValue = animationBinding.AnimationTriggerValue;
 				ds_list_add(animationList, animation);
 			}
 		}
@@ -58,10 +59,12 @@ function GetDbAnimationListByObjectName(_objectName) {
 function GetDbAllAnimationBindingArray() {
 	// Object names are mapped afterward
 	return [
-		new AnimationBinding(obj_player_r_arm, AnimationIndex.PlayerWalkRightArm),
-		new AnimationBinding(obj_player_l_arm, AnimationIndex.PlayerWalkLeftArm),
+		new AnimationBinding(obj_player_head, AnimationIndex.PlayerWalkHead, CharacterStatement.Walk),
+	
+		new AnimationBinding(obj_player_r_arm, AnimationIndex.PlayerWalkRightArm, CharacterStatement.Walk),
+		new AnimationBinding(obj_player_l_arm, AnimationIndex.PlayerWalkLeftArm, CharacterStatement.Walk),
 		
-		new AnimationBinding(obj_player_r_leg, AnimationIndex.PlayerWalkRightLeg),
-		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerWalkLeftLeg)
+		new AnimationBinding(obj_player_r_leg, AnimationIndex.PlayerWalkRightLeg, CharacterStatement.Walk),
+		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerWalkLeftLeg, CharacterStatement.Walk)
 	];
 }
