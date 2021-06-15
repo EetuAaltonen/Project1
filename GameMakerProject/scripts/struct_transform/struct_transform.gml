@@ -12,6 +12,7 @@ function Transform(_objectName, _instance, _parent, _transformFunc, _offset, _sc
 	Rotation = _rotation;
 	Depth = _depth;
 	Animator = noone;
+	AnimationTriggerValue = undefined;
 	ChildList = ds_list_create();
 	
 	/*
@@ -52,9 +53,19 @@ function Transform(_objectName, _instance, _parent, _transformFunc, _offset, _sc
 		Insert description here
 	*/
 	static UpdateTransform = function() {
+		if (!is_undefined(Parent)) {
+			if (Parent.AnimationTriggerValue != AnimationTriggerValue) {
+				AnimationTriggerValue = Parent.AnimationTriggerValue;
+				if (instance_exists(Animator)) {
+					Animator.animationTriggerValue = AnimationTriggerValue;
+				}
+			}
+		}
+		
 		if (instance_exists(Instance) && !is_undefined(ObjectName) && !is_undefined(TransformFunc) && script_exists(TransformFunc)) {
 			script_execute(TransformFunc, self);
 		}
+		
 		var listSize = ds_list_size(ChildList);
 		for (var i = 0; i < listSize; i++) {
 			var child = ds_list_find_value(ChildList, i);

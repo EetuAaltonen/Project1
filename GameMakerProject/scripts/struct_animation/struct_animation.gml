@@ -4,6 +4,7 @@
 */
 function Animation(_animationIndex) constructor {
 	AnimationIndex = _animationIndex;
+	TriggerValue = undefined;
 	IsPlaying = false;
 	IsRepeating = true;
 	IsReversed = false;
