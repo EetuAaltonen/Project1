@@ -19,7 +19,7 @@ function GetGUIButtonGroupActiveByIndex(_index) {
 	var controller = obj_controller_gui;
 	if (instance_exists(controller)) {
 		with (controller) {
-			var listSize = guiButtonGroups;
+			var listSize = ds_list_size(guiButtonGroups);
 			var guiButtonGroup = undefined;
 			for (var i = 0; i < listSize; i++) {
 				var group = ds_list_find_value(guiButtonGroups, i);
