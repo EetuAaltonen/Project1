@@ -4,6 +4,10 @@
 */
 function GetDbAllAnimationStepArray() {
 	return [
+		// Player head
+		new AnimationStep(AnimationIndex.PlayerWalkHead, 20, 1, undefined, undefined, 5, undefined),
+		new AnimationStep(AnimationIndex.PlayerWalkHead, 20, 1, undefined, undefined, -10, undefined),
+		
 		// Player right arm
 		new AnimationStep(AnimationIndex.PlayerWalkRightArm, 20, 1, undefined, undefined, -40, undefined),
 		new AnimationStep(AnimationIndex.PlayerWalkRightArm, 20, 1, undefined, undefined, 40, undefined),

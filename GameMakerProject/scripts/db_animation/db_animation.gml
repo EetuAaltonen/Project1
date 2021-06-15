@@ -42,6 +42,7 @@ function GetDbAnimationByAnimationIndex(_index) {
 */
 function GetDbAllAnimationArray() {
 	return [
+		new Animation(AnimationIndex.PlayerWalkHead),
 		new Animation(AnimationIndex.PlayerWalkRightArm),
 		new Animation(AnimationIndex.PlayerWalkLeftArm),
 		new Animation(AnimationIndex.PlayerWalkRightLeg),
