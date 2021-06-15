@@ -11,3 +11,15 @@ function InitAnimator(_transform) {
 		_transform.BindAnimator(animator);
 	}
 }
+
+/*
+	Insert description here
+	param: _animator - Insert description here
+	return:
+*/
+function ChangeAnimatorActiveAnimationStep(_animator, _animationStep) {
+	_animator.activeAnimationStep = _animationStep;
+	_animator.transitionTime = 0;
+	_animator.nextAnimationStep = undefined;
+	_animator.prevAnimationStep = undefined;	
+}
