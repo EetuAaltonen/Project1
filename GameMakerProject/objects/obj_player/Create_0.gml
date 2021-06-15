@@ -5,4 +5,6 @@ walkSpeed = 4;
 runSpeed = 6;
 jumpSpeed = 8;
 
+characterStatement = CharacterStatement.Idle;
+
 createAllChild = true;

@@ -14,6 +14,11 @@ var hMove = keyRight - keyLeft;
 speedVector.x = keyRun ? hMove * runSpeed : hMove * walkSpeed;
 speedVector.x = HorizontalCollision(self);
 x += speedVector.x;
+if (speedVector.x != 0) {
+	characterStatement = CharacterStatement.Walk;
+} else {
+	characterStatement = undefined;	
+}
 
 // Jump
 if (IsGrounded(self) && keyUp) {
@@ -27,4 +32,5 @@ y += speedVector.y;
 // Animation
 image_xscale = speedVector.x != 0 ? sign(speedVector.x) : image_xscale;
 
+transform.AnimationTriggerValue = characterStatement;
 transform.UpdateTransform();
