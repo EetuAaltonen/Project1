@@ -2,7 +2,7 @@
 	Insert description here
 	param: _object - Insert description here
 */
-function IsGrounded(_object) {
+function IsObjectGrounded(_object) {
 	if (instance_exists(_object)) {
 		with (_object) {
 			return place_meeting(x, y + 1, obj_collision_parent);	

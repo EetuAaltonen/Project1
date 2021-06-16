@@ -13,4 +13,9 @@ enum AnimationIndex {
 	PlayerJumpLeftArm,
 	PlayerJumpRightLeg,
 	PlayerJumpLeftLeg,
+	// Player fall
+	PlayerFallRightArm,
+	PlayerFallLeftArm,
+	PlayerFallRightLeg,
+	PlayerFallLeftLeg,
 }

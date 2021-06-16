@@ -6,37 +6,41 @@ var keyDown = keyboard_check(ord("S"));
 var keyRight = keyboard_check(ord("D"));
 var keyRun = keyboard_check(vk_shift);
 
-if (!is_undefined(GetGUIStatement())) return;
-
-var hMove = keyRight - keyLeft;
-
-// Run or Walk
-speedVector.x = keyRun ? hMove * runSpeed : hMove * walkSpeed;
-speedVector.x = HorizontalCollision(self);
-x += speedVector.x;
-
-if (characterStatement == CharacterStatement.Jump) {
-	if (IsGrounded(self)) {
-		characterStatement = CharacterStatement.Idle;
+if (is_undefined(GetGUIStatement())) {
+	var hMove = keyRight - keyLeft;
+	
+	// Run or Walk
+	speedVector.x = keyRun ? hMove * runSpeed : hMove * walkSpeed;
+	speedVector.x = HorizontalCollision(self);
+	x += speedVector.x;
+	
+	speedVector.y += global.GRAVITY
+	speedVector.y = VerticalCollision(self);
+	y += speedVector.y;
+	
+	if (IsObjectGrounded(self)) {
+		// Jump
+		if (keyUp) {
+			speedVector.y -= jumpSpeed;
+			characterStatement = CharacterStatement.Jump;
+		} else if (speedVector.x != 0) {
+			characterStatement = CharacterStatement.Walk;
+		} else {
+			characterStatement = CharacterStatement.Idle;	
+		}
+	} else {
+		if (characterStatement == CharacterStatement.Jump) {
+			if (speedVector.y >= 0) {
+				characterStatement = CharacterStatement.Fall;	
+			}
+		} else if (characterStatement == CharacterStatement.Fall) {
+			if (IsObjectGrounded(self)) {
+				characterStatement = CharacterStatement.Idle;
+			}
+		}
 	}
-} else if (speedVector.x != 0) {
-	characterStatement = CharacterStatement.Walk;
-} else {
-	characterStatement = undefined;	
+	image_xscale = speedVector.x != 0 ? sign(speedVector.x) : image_xscale;
+	
+	transform.AnimationTriggerValue = characterStatement;
+	transform.UpdateTransform();
 }
-
-// Jump
-if (IsGrounded(self) && keyUp) {
-	speedVector.y -= jumpSpeed;
-	characterStatement = CharacterStatement.Jump;
-}
-
-speedVector.y += global.GRAVITY
-speedVector.y = VerticalCollision(self);
-y += speedVector.y;
-
-// Animation
-image_xscale = speedVector.x != 0 ? sign(speedVector.x) : image_xscale;
-
-transform.AnimationTriggerValue = characterStatement;
-transform.UpdateTransform();

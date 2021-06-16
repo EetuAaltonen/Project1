@@ -23,16 +23,30 @@ function GetDbAllAnimationStepArray() {
 		
 		// Player jump
 		// Player right arm
-		new AnimationStep(AnimationIndex.PlayerJumpRightArm, 0, 1, undefined, undefined, 40, undefined),
-		new AnimationStep(AnimationIndex.PlayerJumpRightArm, 10, 0, undefined, undefined, 100, undefined),
+		new AnimationStep(AnimationIndex.PlayerJumpRightArm, 0, 1, undefined, undefined, 20, undefined),
+		new AnimationStep(AnimationIndex.PlayerJumpRightArm, 10, 0, undefined, undefined, 60, undefined),
 		// Player left arm
-		new AnimationStep(AnimationIndex.PlayerJumpLeftArm, 0, 1, undefined, undefined, -40, undefined),
-		new AnimationStep(AnimationIndex.PlayerJumpLeftArm, 10, 0, undefined, undefined, -100, undefined),
+		new AnimationStep(AnimationIndex.PlayerJumpLeftArm, 0, 1, undefined, undefined, -20, undefined),
+		new AnimationStep(AnimationIndex.PlayerJumpLeftArm, 10, 0, undefined, undefined, -60, undefined),
 		// Player right leg
 		new AnimationStep(AnimationIndex.PlayerJumpRightLeg, 0, 1, undefined, undefined, -20, undefined),
 		new AnimationStep(AnimationIndex.PlayerJumpRightLeg, 10, 0, undefined, undefined, -30, undefined),
 		// Player left leg
 		new AnimationStep(AnimationIndex.PlayerJumpLeftLeg, 0, 1, undefined, undefined, 20, undefined),
-		new AnimationStep(AnimationIndex.PlayerJumpLeftLeg, 10, 0, undefined, undefined, 30, undefined)
+		new AnimationStep(AnimationIndex.PlayerJumpLeftLeg, 10, 0, undefined, undefined, 30, undefined),
+		
+		// Player fall
+		// Player right arm
+		new AnimationStep(AnimationIndex.PlayerFallRightArm, 0, 1, undefined, undefined, 60, undefined),
+		new AnimationStep(AnimationIndex.PlayerFallRightArm, 10, 0, undefined, undefined, 100, undefined),
+		// Player left arm
+		new AnimationStep(AnimationIndex.PlayerFallLeftArm, 0, 1, undefined, undefined, -60, undefined),
+		new AnimationStep(AnimationIndex.PlayerFallLeftArm, 10, 0, undefined, undefined, -100, undefined),
+		// Player right leg
+		new AnimationStep(AnimationIndex.PlayerFallRightLeg, 0, 1, undefined, undefined, -30, undefined),
+		new AnimationStep(AnimationIndex.PlayerFallRightLeg, 10, 0, undefined, undefined, -20, undefined),
+		// Player left leg
+		new AnimationStep(AnimationIndex.PlayerFallLeftLeg, 0, 1, undefined, undefined, 30, undefined),
+		new AnimationStep(AnimationIndex.PlayerFallLeftLeg, 10, 0, undefined, undefined, 20, undefined)
 	];
 }
