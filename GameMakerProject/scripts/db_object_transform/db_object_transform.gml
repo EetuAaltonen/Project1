@@ -40,9 +40,15 @@ function GetDbObjectTransformByObjectName(_objectName) {
 function GetDbAllObjectTransformArray() {
 	// Object names are mapped afterward
 	return [
+		// ITEMS
+		// Weapons
 		new Transform(obj_weapon_sword, undefined, undefined, TransFuncPlayerLimb, new Vector2(0, 18), new Scale(1, 1), -80, -1),
 		new Transform(obj_weapon_knife, undefined, undefined, TransFuncPlayerLimb, new Vector2(0, 18), new Scale(1, 1), -80, -1),
+		// Shields
 		new Transform(obj_shield_iron, undefined, undefined, TransFuncPlayerLimb, new Vector2(0, 18), new Scale(1, 1), -90, 1),
-		new Transform(obj_headgear_top_hat, undefined, undefined, TransFuncPlayerLimb, new Vector2(0, -28), new Scale(1, 1), 0, -1)
+		// Headgears
+		new Transform(obj_headgear_top_hat, undefined, undefined, TransFuncPlayerLimb, new Vector2(0, -28), new Scale(1, 1), 0, -1),
+		// Tools
+		new Transform(obj_tool_iron_pickaxe, undefined, undefined, TransFuncPlayerLimb, new Vector2(0, 18), new Scale(1, 1), -80, -1),
 	];
 }
