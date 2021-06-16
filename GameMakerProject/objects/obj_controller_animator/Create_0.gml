@@ -6,4 +6,5 @@ activeAnimationStep = undefined;
 transitionTime = 0;
 nextAnimationStep = undefined;
 prevAnimationStep = undefined;
+playOnce = false;
 alarm[0] = GetAnimationTick();

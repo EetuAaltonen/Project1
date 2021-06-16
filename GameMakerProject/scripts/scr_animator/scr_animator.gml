@@ -21,5 +21,6 @@ function ChangeAnimatorActiveAnimationStep(_animator, _animationStep) {
 	_animator.activeAnimationStep = _animationStep;
 	_animator.transitionTime = 0;
 	_animator.nextAnimationStep = undefined;
-	_animator.prevAnimationStep = undefined;	
+	_animator.prevAnimationStep = undefined;
+	_animator.playOnce = false;
 }
