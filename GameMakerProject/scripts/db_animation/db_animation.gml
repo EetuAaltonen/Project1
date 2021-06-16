@@ -11,7 +11,7 @@ function CreateDbAnimationMap() {
 	
 	for (var i = 0; i < arrayLength; i++) {
 		var animation = allAnimation[i];
-		var newAnimation = new Animation(animation.AnimationIndex)
+		var newAnimation = animation.Copy();
 		for (var j = 0; j < stepArrayLength; j++) {
 			var animationStep = allAnimationStep[j];
 			if (animationStep.AnimationIndex == newAnimation.AnimationIndex) {
@@ -42,10 +42,16 @@ function GetDbAnimationByAnimationIndex(_index) {
 */
 function GetDbAllAnimationArray() {
 	return [
-		new Animation(AnimationIndex.PlayerWalkHead),
-		new Animation(AnimationIndex.PlayerWalkRightArm),
-		new Animation(AnimationIndex.PlayerWalkLeftArm),
-		new Animation(AnimationIndex.PlayerWalkRightLeg),
-		new Animation(AnimationIndex.PlayerWalkLeftLeg)
+		// Player walk
+		new Animation(AnimationIndex.PlayerWalkHead, true),
+		new Animation(AnimationIndex.PlayerWalkRightArm, true),
+		new Animation(AnimationIndex.PlayerWalkLeftArm, true),
+		new Animation(AnimationIndex.PlayerWalkRightLeg, true),
+		new Animation(AnimationIndex.PlayerWalkLeftLeg, true),
+		// Player jump
+		new Animation(AnimationIndex.PlayerJumpRightArm, false),
+		new Animation(AnimationIndex.PlayerJumpLeftArm, false),
+		new Animation(AnimationIndex.PlayerJumpRightLeg, false),
+		new Animation(AnimationIndex.PlayerJumpLeftLeg, false)
 	];
 }

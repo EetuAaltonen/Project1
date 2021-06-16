@@ -59,12 +59,16 @@ function GetDbAnimationListByObjectName(_objectName) {
 function GetDbAllAnimationBindingArray() {
 	// Object names are mapped afterward
 	return [
+		// Player walk
 		new AnimationBinding(obj_player_head, AnimationIndex.PlayerWalkHead, CharacterStatement.Walk),
-	
 		new AnimationBinding(obj_player_r_arm, AnimationIndex.PlayerWalkRightArm, CharacterStatement.Walk),
 		new AnimationBinding(obj_player_l_arm, AnimationIndex.PlayerWalkLeftArm, CharacterStatement.Walk),
-		
 		new AnimationBinding(obj_player_r_leg, AnimationIndex.PlayerWalkRightLeg, CharacterStatement.Walk),
-		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerWalkLeftLeg, CharacterStatement.Walk)
+		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerWalkLeftLeg, CharacterStatement.Walk),
+		// Player jump
+		new AnimationBinding(obj_player_r_arm, AnimationIndex.PlayerJumpRightArm, CharacterStatement.Jump),
+		new AnimationBinding(obj_player_l_arm, AnimationIndex.PlayerJumpLeftArm, CharacterStatement.Jump),
+		new AnimationBinding(obj_player_r_leg, AnimationIndex.PlayerJumpRightLeg, CharacterStatement.Jump),
+		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerJumpLeftLeg, CharacterStatement.Jump)
 	];
 }

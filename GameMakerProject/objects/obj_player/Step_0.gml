@@ -14,7 +14,12 @@ var hMove = keyRight - keyLeft;
 speedVector.x = keyRun ? hMove * runSpeed : hMove * walkSpeed;
 speedVector.x = HorizontalCollision(self);
 x += speedVector.x;
-if (speedVector.x != 0) {
+
+if (characterStatement == CharacterStatement.Jump) {
+	if (IsGrounded(self)) {
+		characterStatement = CharacterStatement.Idle;
+	}
+} else if (speedVector.x != 0) {
 	characterStatement = CharacterStatement.Walk;
 } else {
 	characterStatement = undefined;	
@@ -23,6 +28,7 @@ if (speedVector.x != 0) {
 // Jump
 if (IsGrounded(self) && keyUp) {
 	speedVector.y -= jumpSpeed;
+	characterStatement = CharacterStatement.Jump;
 }
 
 speedVector.y += global.GRAVITY

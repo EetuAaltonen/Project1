@@ -2,11 +2,11 @@
 	Insert description here
 	param: _animationIndex - Insert description here
 */
-function Animation(_animationIndex) constructor {
+function Animation(_animationIndex, _isRepeating) constructor {
 	AnimationIndex = _animationIndex;
 	TriggerValue = undefined;
 	IsPlaying = false;
-	IsRepeating = true;
+	IsRepeating = _isRepeating;
 	IsReversed = false;
 	PlaySpeed = 1.00;
 	StepIndex = -1
@@ -16,7 +16,7 @@ function Animation(_animationIndex) constructor {
 		Insert description here
 	*/
 	static Copy = function() {
-		var copyAnimation = new Animation(undefined);
+		var copyAnimation = new Animation(undefined, undefined);
 		copyAnimation = CloneStructValues(self, copyAnimation);
 		return copyAnimation;
     }
