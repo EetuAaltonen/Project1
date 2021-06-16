@@ -21,6 +21,6 @@ function ButtonFuncSetGUIStatement(_guiStatement) {
 function ClickedButtonFuncInventoryItem(_index) {
 	var item = GetInventoryItemByIndex(_index);
 	if (!is_undefined(item.EquipSlot)) {
-		EquipInventoryItem(item);
+		ToggleInventoryItemEquip(item);
 	}
 }
