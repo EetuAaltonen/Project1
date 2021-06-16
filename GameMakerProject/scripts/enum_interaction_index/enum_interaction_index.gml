@@ -3,4 +3,5 @@ enum InteractionIndex {
 	Lift,
 	Push,
 	Collect,
+	Mine,
 }

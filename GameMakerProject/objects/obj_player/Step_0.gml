@@ -7,38 +7,46 @@ var keyRight = keyboard_check(ord("D"));
 var keyRun = keyboard_check(vk_shift);
 
 if (is_undefined(GetGUIStatement())) {
-	var hMove = keyRight - keyLeft;
+	switch (characterStatement) {
+		case CharacterStatement.Mine: {
+			// Interrupt movement
+		} break;
+		default: {
+			var hMove = keyRight - keyLeft;
 	
-	// Run or Walk
-	speedVector.x = keyRun ? hMove * runSpeed : hMove * walkSpeed;
-	speedVector.x = HorizontalCollision(self);
-	x += speedVector.x;
+			// Run or Walk
+			speedVector.x = keyRun ? hMove * runSpeed : hMove * walkSpeed;
+			speedVector.x = HorizontalCollision(self);
+			x += speedVector.x;
 	
-	speedVector.y += global.GRAVITY
-	speedVector.y = VerticalCollision(self);
-	y += speedVector.y;
+			speedVector.y += global.GRAVITY
+			speedVector.y = VerticalCollision(self);
+			y += speedVector.y;
 	
-	if (IsObjectGrounded(self)) {
-		// Jump
-		if (keyUp) {
-			speedVector.y -= jumpSpeed;
-			characterStatement = CharacterStatement.Jump;
-		} else if (speedVector.x != 0) {
-			characterStatement = CharacterStatement.Walk;
-		} else {
-			characterStatement = CharacterStatement.Idle;	
-		}
-	} else {
-		if (characterStatement == CharacterStatement.Jump) {
-			if (speedVector.y >= 0) {
-				characterStatement = CharacterStatement.Fall;	
-			}
-		} else if (characterStatement == CharacterStatement.Fall) {
 			if (IsObjectGrounded(self)) {
-				characterStatement = CharacterStatement.Idle;
-			}
+				// Jump
+				if (keyUp) {
+					speedVector.y -= jumpSpeed;
+					characterStatement = CharacterStatement.Jump;
+				} else if (speedVector.x != 0) {
+					characterStatement = CharacterStatement.Walk;
+				} else {
+					characterStatement = CharacterStatement.Idle;	
+				}
+			} else {
+				if (characterStatement == CharacterStatement.Jump) {
+					if (speedVector.y >= 0) {
+						characterStatement = CharacterStatement.Fall;	
+					}
+				} else if (characterStatement == CharacterStatement.Fall) {
+					if (IsObjectGrounded(self)) {
+						characterStatement = CharacterStatement.Idle;
+					}
+				}
+			}	
 		}
 	}
+	
 	image_xscale = speedVector.x != 0 ? sign(speedVector.x) : image_xscale;
 	
 	transform.AnimationTriggerValue = characterStatement;

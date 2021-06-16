@@ -32,6 +32,9 @@ if (highlightedObject != noone) {
 					case InteractionIndex.Push: {
 						InteractionPushObject(player, highlightedObject);
 					} break;
+					case InteractionIndex.Mine: {
+						InteractionMine(player, highlightedObject)
+					} break;
 				}
 				RequestGUIStatementReset();
 				ResetInteraction();
