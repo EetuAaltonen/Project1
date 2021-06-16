@@ -12,11 +12,19 @@ SetFontDraw(hotbarFont);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
 
+// Primary slot
 draw_sprite(sprItemSlot, 0, xPos, yPos);
 draw_text(xPos + 8, yPos + 5, "R");
-
 if (!is_undefined(hotbarData.PrimaryItem)) {
 	DrawItemSpriteOnHotbarSlot(hotbarData.PrimaryItem.SpriteName, xPos, yPos, slotSize.Width, slotSize.Height);
+}
+
+// Secondary slot
+xPos += 68;
+draw_sprite(sprItemSlot, 0, xPos, yPos);
+draw_text(xPos + 8, yPos + 5, "L");
+if (!is_undefined(hotbarData.SecondaryItem)) {
+	DrawItemSpriteOnHotbarSlot(hotbarData.SecondaryItem.SpriteName, xPos, yPos, slotSize.Width, slotSize.Height);
 }
 
 switch (guiStatement) {
