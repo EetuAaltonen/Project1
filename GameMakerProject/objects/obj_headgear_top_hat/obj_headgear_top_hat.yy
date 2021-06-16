@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Headgear",
-    "path": "folders/Objects/Equipment/Headgear.yy",
+    "path": "folders/Objects/Items/Equipment/Headgear.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_headgear_top_hat",

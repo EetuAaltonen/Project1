@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Shields",
-    "path": "folders/Objects/Equipment/Shields.yy",
+    "path": "folders/Objects/Items/Equipment/Shields.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_shield_iron",
