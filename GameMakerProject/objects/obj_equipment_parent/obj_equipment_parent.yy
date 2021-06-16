@@ -25,7 +25,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Equipment",
-    "path": "folders/Objects/Equipment.yy",
+    "path": "folders/Objects/Items/Equipment.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_equipment_parent",
