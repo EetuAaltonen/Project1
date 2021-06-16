@@ -74,6 +74,11 @@ function GetDbAllAnimationBindingArray() {
 		new AnimationBinding(obj_player_r_arm, AnimationIndex.PlayerFallRightArm, CharacterStatement.Fall),
 		new AnimationBinding(obj_player_l_arm, AnimationIndex.PlayerFallLeftArm, CharacterStatement.Fall),
 		new AnimationBinding(obj_player_r_leg, AnimationIndex.PlayerFallRightLeg, CharacterStatement.Fall),
-		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerFallLeftLeg, CharacterStatement.Fall)
+		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerFallLeftLeg, CharacterStatement.Fall),
+		// Player fall
+		new AnimationBinding(obj_player_r_arm, AnimationIndex.PlayerMineRightArm, CharacterStatement.Mine),
+		new AnimationBinding(obj_player_l_arm, AnimationIndex.PlayerMineLeftArm, CharacterStatement.Mine),
+		new AnimationBinding(obj_player_r_leg, AnimationIndex.PlayerMineRightLeg, CharacterStatement.Mine),
+		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerMineLeftLeg, CharacterStatement.Mine)
 	];
 }

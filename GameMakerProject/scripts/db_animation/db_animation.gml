@@ -57,6 +57,11 @@ function GetDbAllAnimationArray() {
 		new Animation(AnimationIndex.PlayerFallRightArm, false),
 		new Animation(AnimationIndex.PlayerFallLeftArm, false),
 		new Animation(AnimationIndex.PlayerFallRightLeg, false),
-		new Animation(AnimationIndex.PlayerFallLeftLeg, false)
+		new Animation(AnimationIndex.PlayerFallLeftLeg, false),
+		// Player fall
+		new Animation(AnimationIndex.PlayerMineRightArm, true),
+		new Animation(AnimationIndex.PlayerMineLeftArm, true),
+		new Animation(AnimationIndex.PlayerMineRightLeg, true),
+		new Animation(AnimationIndex.PlayerMineLeftLeg, true)
 	];
 }

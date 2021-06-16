@@ -7,4 +7,5 @@ enum CharacterStatement {
 	Fall,
 	Ragdoll,
 	Interact,
+	Mine,
 }
