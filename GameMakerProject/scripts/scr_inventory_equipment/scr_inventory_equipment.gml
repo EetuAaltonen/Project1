@@ -48,3 +48,21 @@ function ToggleInventoryItemEquip(_item) {
 		}
 	}
 }
+
+/*
+	Insert description here
+	param: _equipSlot - Insert description here
+	return:
+*/
+function GetInventoryEquipmentByEquipSlot(_equipSlot) {
+	var equipment = undefined;
+	var controller = obj_controller_inventory;
+	
+	if (instance_exists(controller)) {
+		with (controller) {
+			equipment = controller.inventory.GetEquipmentByEquipSlot(_equipSlot);	
+		}
+	}
+	
+	return equipment;
+}

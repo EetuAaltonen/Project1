@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Inventory.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_inventory_item",
+  "name": "scr_inventory_equipment",
   "tags": [],
   "resourceType": "GMScript",
 }
