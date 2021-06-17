@@ -57,6 +57,26 @@ function Inventory() constructor {
 	
 	/*
 		Insert description here
+		param: _equipSlot - Insert description here
+	*/
+	static GetEquipmentByEquipSlot = function(_equipSlot) {
+		var equipment = undefined;
+		
+		if (!is_undefined(_equipSlot)) {
+			var listSize = ds_list_size(EquipList);
+			for (var i = 0; i < listSize; i++) {
+				var equippedItem = ds_list_find_value(EquipList, i);
+				if (equippedItem.EquipSlot = _equipSlot) {
+					equipment = equippedItem.Copy();
+				}
+			}
+		}
+		
+		return equipment;
+	}
+	
+	/*
+		Insert description here
 		param: _item - Insert description here
 	*/
 	static IsItemEquipped = function(_item) {
