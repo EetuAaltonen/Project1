@@ -46,7 +46,10 @@ function GetDbAllItemDataArray() {
 		new ItemData(spr_headgear_top_hat, obj_headgear_top_hat, "Top Hat", EquipSlot.Headgear),
 		// Tools
 		new ItemData(spr_tool_iron_pickaxe, obj_tool_iron_pickaxe, "Iron Pickaxe", EquipSlot.Primary),
-		// Materials
+		// MATERIALS
+		// Ores
+		new ItemData(spr_material_iron_ore, undefined, "Iron Ore", undefined),
+		// Ingots
 		new ItemData(spr_material_iron_bar, undefined, "Iron Bar", undefined),
 		new ItemData(spr_material_gold_bar, undefined, "Gold Bar", undefined),
 		new ItemData(spr_material_steel_bar, undefined, "Steel Bar", undefined)
