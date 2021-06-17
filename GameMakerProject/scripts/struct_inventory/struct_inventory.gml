@@ -10,18 +10,38 @@ function Inventory() constructor {
 	/*
 		Insert description here
 		param: _item - Insert description here
+		param: _count - Insert description here
 	*/
-	static AddItem = function(_item) {
+	static AddItem = function(_item, _count) {
 		if (!is_undefined(_item)) {
 			var listSize = ds_list_size(Items);
 			var existsItem = false;
 			for (var i = 0; i < listSize; i++) {
 				var item = ds_list_find_value(Items, i);
 				if (CompareItemData(item, _item)) {
-					existsItem = true;
-					item.Count += _item.Count;
-					if (item.Count <= 0) {
-						ds_list_delete(Items, i);	
+					var playerPosition = GetPlayerPosition();
+					if (!is_undefined(playerPosition)) {
+						existsItem = true;
+						var dropPosition = new Vector2(playerPosition.x, playerPosition.y - 20);
+						var newCount = item.Count + _count;
+						var droppedItem = item.Copy();
+						
+						// Drop item
+						if (_count < 0) {
+							droppedItem.Count = abs(_count);
+							SpawnCollectableItem(droppedItem, dropPosition, true);
+						}
+						
+						// Update new count
+						if (newCount <= 0) {
+							if (IsItemEquipped(item)) {
+								ToggleInventoryItemEquip(item);
+							}
+							ds_list_delete(Items, i);
+							RequestInventoryItemListUpdate();
+						} else {
+							item.Count = newCount;
+						}
 					}
 					break;
 				}

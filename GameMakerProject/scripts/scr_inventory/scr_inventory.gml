@@ -1,12 +1,14 @@
 /*
 	Insert description here
+	param: _item - Insert description here
+	param: _count - Insert description here
 	return:
 */
-function AddInventoryItem(_item) {
+function AddInventoryItem(_item, _count) {
 	var controller = obj_controller_inventory;
 	if (instance_exists(controller)) {
 		with (controller) {
-			inventory.AddItem(_item);
+			inventory.AddItem(_item, _count);
 		}
 	}
 }

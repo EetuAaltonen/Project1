@@ -19,8 +19,16 @@ function ButtonFuncSetGUIStatement(_guiStatement) {
 	param: _guiStatement - Insert description here
 */
 function ClickedButtonFuncInventoryItem(_index) {
+	var dropKey = keyboard_check(vk_shift);
 	var item = GetInventoryItemByIndex(_index);
-	if (!is_undefined(item.EquipmentSlot)) {
-		ToggleInventoryItemEquip(item);
+	
+	if (dropKey) {
+		// Drop item
+		AddInventoryItem(item, -1);
+	} else {
+		// Toggle item equipping
+		if (!is_undefined(item.EquipmentSlot)) {
+			ToggleInventoryItemEquip(item);
+		}
 	}
 }

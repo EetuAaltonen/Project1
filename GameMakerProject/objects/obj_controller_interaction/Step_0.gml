@@ -26,7 +26,7 @@ if (highlightedObject != noone) {
 				var interaction = ds_list_find_value(interactionMenuValues, selectedMenuIndex);
 				switch (interaction.Index) {
 					case InteractionIndex.Collect: {
-						AddInventoryItem(highlightedObject.itemData);
+						AddInventoryItem(highlightedObject.itemData, highlightedObject.itemData.Count);
 						with (highlightedObject) {
 							instance_destroy();
 						}
