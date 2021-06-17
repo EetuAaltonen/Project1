@@ -13,7 +13,22 @@ function Inventory() constructor {
 	*/
 	static AddItem = function(_item) {
 		if (!is_undefined(_item)) {
-			ds_list_add(Items, _item);
+			var listSize = ds_list_size(Items);
+			var existsItem = false;
+			for (var i = 0; i < listSize; i++) {
+				var item = ds_list_find_value(Items, i);
+				if (CompareItemData(item, _item)) {
+					existsItem = true;
+					item.Count += _item.Count;
+					if (item.Count <= 0) {
+						ds_list_delete(Items, i);	
+					}
+					break;
+				}
+			}
+			if (!existsItem) {
+				ds_list_add(Items, _item);	
+			}
 		}
 	}
 	
@@ -46,8 +61,7 @@ function Inventory() constructor {
 			var listSize = ds_list_size(EquipList);
 			for (var i = 0; i < listSize; i++) {
 				var equipment =	ds_list_find_value(EquipList, i);
-				// TODO: Better item comparing
-				if (equipment.SpriteName = _item.SpriteName) {
+				if (CompareItemData(equipment, _item)) {
 					ds_list_delete(EquipList, i);
 					break;
 				}
@@ -86,8 +100,7 @@ function Inventory() constructor {
 			var listSize = ds_list_size(EquipList);
 			for (var i = 0; i < listSize; i++) {
 				var equipment =	ds_list_find_value(EquipList, i);
-				// TODO: Better item comparing
-				if (equipment.SpriteName = _item.SpriteName) {
+				if (CompareItemData(equipment, _item)) {
 					isEqupped = true;
 					break;
 				}
