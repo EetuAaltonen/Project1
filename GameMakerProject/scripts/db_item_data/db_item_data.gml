@@ -39,14 +39,14 @@ function GetDbAllItemDataArray() {
 	return [
 		// ITEMS
 		// Weapons
-		new ItemData(spr_weapon_sword, obj_weapon_sword, "Sword", EquipSlot.Primary),
-		new ItemData(spr_weapon_knife, obj_weapon_knife, "Knife", EquipSlot.Primary),
+		new ItemData(spr_weapon_sword, obj_weapon_sword, "Sword", EquipmentSlot.Primary),
+		new ItemData(spr_weapon_knife, obj_weapon_knife, "Knife", EquipmentSlot.Primary),
 		// Shields
-		new ItemData(spr_shield_iron, obj_shield_iron, "Iron Shield", EquipSlot.Secondary),
+		new ItemData(spr_shield_iron, obj_shield_iron, "Iron Shield", EquipmentSlot.Secondary),
 		// Headgears
-		new ItemData(spr_headgear_top_hat, obj_headgear_top_hat, "Top Hat", EquipSlot.Headgear),
+		new ItemData(spr_headgear_top_hat, obj_headgear_top_hat, "Top Hat", EquipmentSlot.Headgear),
 		// Tools
-		new ItemData(spr_tool_iron_pickaxe, obj_tool_iron_pickaxe, "Iron Pickaxe", EquipSlot.Primary),
+		new ItemData(spr_tool_iron_pickaxe, obj_tool_iron_pickaxe, "Iron Pickaxe", EquipmentSlot.Primary),
 		// MATERIALS
 		// Ores
 		new ItemData(spr_material_iron_ore, undefined, "Iron Ore", undefined),

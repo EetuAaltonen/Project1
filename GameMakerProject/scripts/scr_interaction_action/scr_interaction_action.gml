@@ -25,7 +25,7 @@ function InteractionMine(_player, _vein) {
 			TriggerInteractionCooldown();
 			ResetInteraction();
 		} else {
-			var primaryItem = GetInventoryEquipmentByEquipSlot(EquipSlot.Primary);
+			var primaryItem = GetInventoryEquipmentByEquipmentSlot(EquipmentSlot.Primary);
 			if (!is_undefined(primaryItem)) {
 				if (primaryItem.SpriteName == sprite_get_name(_vein.requiredTool)) {
 					_player.characterStatement = CharacterStatement.Mine;

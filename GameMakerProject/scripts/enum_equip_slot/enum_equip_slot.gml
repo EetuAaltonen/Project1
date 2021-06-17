@@ -1,7 +1,7 @@
 /*
 	Insert description here
 */
-enum EquipSlot {
+enum EquipmentSlot {
 	Headgear,
 	Primary,
 	Secondary,

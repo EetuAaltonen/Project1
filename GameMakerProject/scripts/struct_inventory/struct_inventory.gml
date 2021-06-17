@@ -23,11 +23,11 @@ function Inventory() constructor {
 	*/
 	static EquipItem = function(_item) {
 		if (!is_undefined(_item)) {
-			// Replace item in the same equipslot
+			// Replace item in the same equipmentSlot
 			var listSize = ds_list_size(EquipList);
 			for (var i = 0; i < listSize; i++) {
 				var equipment =	ds_list_find_value(EquipList, i);
-				if (equipment.EquipSlot = _item.EquipSlot) {
+				if (equipment.EquipmentSlot = _item.EquipmentSlot) {
 					ds_list_delete(EquipList, i);
 					break;
 				}
@@ -57,16 +57,16 @@ function Inventory() constructor {
 	
 	/*
 		Insert description here
-		param: _equipSlot - Insert description here
+		param: _equipmentSlot - Insert description here
 	*/
-	static GetEquipmentByEquipSlot = function(_equipSlot) {
+	static GetEquipmentByEquipmentSlot = function(_equipmentSlot) {
 		var equipment = undefined;
 		
-		if (!is_undefined(_equipSlot)) {
+		if (!is_undefined(_equipmentSlot)) {
 			var listSize = ds_list_size(EquipList);
 			for (var i = 0; i < listSize; i++) {
 				var equippedItem = ds_list_find_value(EquipList, i);
-				if (equippedItem.EquipSlot = _equipSlot) {
+				if (equippedItem.EquipmentSlot = _equipmentSlot) {
 					equipment = equippedItem.Copy();
 				}
 			}

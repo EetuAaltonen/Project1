@@ -16,16 +16,16 @@ function DrawItemSpriteOnHotbarSlot(_spriteName, _xSlotPos, _ySlotPos, _slotWidt
 /*
 	Insert description here
 	param: _item - Insert description here
-	param: _equipSlot - Insert description here
+	param: _equipmentSlot - Insert description here
 	return:
 */
-function UpdateHotbarItem(_item, _equipSlot) {
+function UpdateHotbarItem(_item, _equipmentSlot) {
 	var controller = obj_controller_gui;
 	if (instance_exists(controller)) {
 		with (controller) {
-			switch (_equipSlot) {
-				case EquipSlot.Primary: { hotbarData.PrimaryItem = _item; } break;
-				case EquipSlot.Secondary: { hotbarData.SecondaryItem = _item; } break;
+			switch (_equipmentSlot) {
+				case EquipmentSlot.Primary: { hotbarData.PrimaryItem = _item; } break;
+				case EquipmentSlot.Secondary: { hotbarData.SecondaryItem = _item; } break;
 			}
 		}
 	}

@@ -4,10 +4,10 @@
 */
 function ToggleInventoryItemEquip(_item) {
 	var slotParent = undefined;
-	switch (_item.EquipSlot) {
-		case EquipSlot.Headgear: { slotParent = obj_player_head; } break;
-		case EquipSlot.Primary: { slotParent = obj_player_r_arm; } break;
-		case EquipSlot.Secondary: { slotParent = obj_player_l_arm; } break;
+	switch (_item.EquipmentSlot) {
+		case EquipmentSlot.Headgear: { slotParent = obj_player_head; } break;
+		case EquipmentSlot.Primary: { slotParent = obj_player_r_arm; } break;
+		case EquipmentSlot.Secondary: { slotParent = obj_player_l_arm; } break;
 	}
 	// Convert to object name
 	slotParent = object_get_name(slotParent);
@@ -29,7 +29,7 @@ function ToggleInventoryItemEquip(_item) {
 		
 		// Update hotbar
 		var hotbarItem = isEquipped ? undefined : _item;
-		UpdateHotbarItem(hotbarItem, _item.EquipSlot);
+		UpdateHotbarItem(hotbarItem, _item.EquipmentSlot);
 		
 		var itemTransform = GetDbObjectTransformByObjectName(_item.ObjectName);
 		var player = obj_player;
@@ -51,16 +51,16 @@ function ToggleInventoryItemEquip(_item) {
 
 /*
 	Insert description here
-	param: _equipSlot - Insert description here
+	param: _equipmentSlot - Insert description here
 	return:
 */
-function GetInventoryEquipmentByEquipSlot(_equipSlot) {
+function GetInventoryEquipmentByEquipmentSlot(_equipmentSlot) {
 	var equipment = undefined;
 	var controller = obj_controller_inventory;
 	
 	if (instance_exists(controller)) {
 		with (controller) {
-			equipment = controller.inventory.GetEquipmentByEquipSlot(_equipSlot);	
+			equipment = controller.inventory.GetEquipmentByEquipmentSlot(_equipmentSlot);	
 		}
 	}
 	
