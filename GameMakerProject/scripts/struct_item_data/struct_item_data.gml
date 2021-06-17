@@ -9,6 +9,7 @@ function ItemData(_spriteName, _objectName, _name, _equipmentSlot) constructor {
 	SpriteName = _spriteName;
 	ObjectName = _objectName;
 	Name = _name;
+	Count = 1;
 	EquipmentSlot = _equipmentSlot;
 	
 	/*

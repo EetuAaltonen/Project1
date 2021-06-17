@@ -49,11 +49,22 @@ function DrawGUIButtonInventoryItem(_button) {
 		
 		SetFontDraw(_button.TextFont);
 		if (IsGUIButtonHovered(_button)) { draw_set_color(c_white); }
+		
+		// Draw item name
 		draw_sprite(
 			itemSprite, 0,
 			_button.Position.x + sprOffset.x + sprCenterMargin.Left,
 			_button.Position.y + (_button.Size.Height / 2) + sprCenterMargin.Top
 		);
 		draw_text(_button.Position.x + textOffset.x, _button.Position.y + (_button.Size.Height / 2), itemData.Name);
+		
+		// Draw item count
+		draw_set_halign(fa_right);
+		textOffset = new Vector2(10, 0);
+		draw_text(
+			_button.Position.x + (_button.Size.Width - textOffset.x),
+			_button.Position.y + (_button.Size.Height / 2),
+			string(itemData.Count) + "x"
+		);
 	}
 }
