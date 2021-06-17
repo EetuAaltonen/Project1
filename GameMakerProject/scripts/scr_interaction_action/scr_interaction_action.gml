@@ -27,7 +27,7 @@ function InteractionMine(_player, _vein) {
 		} else {
 			var primaryItem = GetInventoryEquipmentByEquipmentSlot(EquipmentSlot.Primary);
 			if (!is_undefined(primaryItem)) {
-				if (primaryItem.SpriteName == sprite_get_name(_vein.requiredTool)) {
+				if (primaryItem.SpriteName == _vein.oreVein.RequiredToolName) {
 					_player.characterStatement = CharacterStatement.Mine;
 				}
 			}

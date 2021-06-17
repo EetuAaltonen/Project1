@@ -10,7 +10,8 @@ if (IsHighlighted(self)) {
 				if (activeAnimationStep.InteractionTriggerValue == InteractionTriggerValue.MineOre &&
 					previousInteractionTrigger != activeAnimationStep.InteractionTriggerValue) {
 					var itemData = GetDbItemDataBySprite(asset_get_index(oreVein.OreSpriteName));
-					var spawnPosition = new Vector2(x, y - 20);
+					itemData.Count = oreVein.DropCount;
+					var spawnPosition = new Vector2(x + irandom_range(-60, 60), y - 40);
 					SpawnCollectableItem(itemData, spawnPosition, true);
 				}
 				previousInteractionTrigger = activeAnimationStep.InteractionTriggerValue;

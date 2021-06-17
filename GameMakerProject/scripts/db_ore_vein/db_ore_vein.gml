@@ -11,6 +11,7 @@ function CreateDbOreVeinMap() {
 		var oreVein = allOreVein[i];
 		oreVein.SpriteName = sprite_get_name(oreVein.SpriteName);
 		oreVein.OreSpriteName = sprite_get_name(oreVein.OreSpriteName);
+		oreVein.RequiredToolName = sprite_get_name(oreVein.RequiredToolName);
 		
 		oreVeinMap [? oreVein.SpriteName] = oreVein;
 	}
