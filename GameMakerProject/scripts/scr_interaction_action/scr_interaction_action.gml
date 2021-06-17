@@ -25,8 +25,12 @@ function InteractionMine(_player, _vein) {
 			TriggerInteractionCooldown();
 			ResetInteraction();
 		} else {
-			// TODO: Check required tool
-			_player.characterStatement = CharacterStatement.Mine;	
+			var primaryItem = GetInventoryEquipmentByEquipSlot(EquipSlot.Primary);
+			if (!is_undefined(primaryItem)) {
+				if (primaryItem.SpriteName == sprite_get_name(_vein.requiredTool)) {
+					_player.characterStatement = CharacterStatement.Mine;
+				}
+			}
 		}
-	}	
+	}
 }
