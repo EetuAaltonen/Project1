@@ -10,4 +10,13 @@ function ItemData(_spriteName, _objectName, _name, _equipSlot) constructor {
 	ObjectName = _objectName;
 	Name = _name;
 	EquipSlot = _equipSlot;
+	
+	/*
+		Insert description here
+	*/
+	static Copy = function() {
+		var copyAnimation = new ItemData(undefined, undefined, undefined, undefined);
+		copyAnimation = CloneStructValues(self, copyAnimation);
+		return copyAnimation;
+    }
 }

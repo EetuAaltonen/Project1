@@ -25,7 +25,8 @@ function CreateDbItemDataMap() {
 function GetDbItemDataBySprite(_sprite) {
 	with (obj_controller_database) {
 		var spriteName = sprite_get_name(_sprite);
-		return ds_map_find_value(dbItemDataMap, spriteName);
+		var itemData = ds_map_find_value(dbItemDataMap, spriteName);
+		return itemData.Copy();
 	}
 }
 
