@@ -27,17 +27,20 @@ if (highlightedObject != noone) {
 				switch (interaction.Index) {
 					case InteractionIndex.Collect: {
 						AddInventoryItem(highlightedObject.itemData);
-						instance_destroy(highlightedObject);
+						with (highlightedObject) {
+							instance_destroy();
+						}
+						ResetInteraction();
 					} break;
 					case InteractionIndex.Push: {
 						InteractionPushObject(player, highlightedObject);
+						ResetInteraction();
 					} break;
 					case InteractionIndex.Mine: {
 						InteractionMine(player, highlightedObject)
 					} break;
 				}
 				RequestGUIStatementReset();
-				ResetInteraction();
 			}
 		}
 	}

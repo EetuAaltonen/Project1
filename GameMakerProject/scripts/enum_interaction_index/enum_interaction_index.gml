@@ -1,4 +1,6 @@
-/// Insert description here
+/*
+	Insert description here
+*/
 enum InteractionIndex {
 	Lift,
 	Push,
