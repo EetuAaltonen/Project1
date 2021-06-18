@@ -27,8 +27,9 @@ if (!is_undefined(hotbarData.SecondaryItem)) {
 	DrawItemSpriteOnHotbarSlot(hotbarData.SecondaryItem.SpriteName, xPos, yPos, slotSize.Width, slotSize.Height);
 }
 
-switch (guiStatement) {
-	case GUIStatement.Inventory: {
+if (!is_undefined(guiStatement)) {
+	if (guiStatement == GUIStatement.Inventory ||
+		guiStatement == GUIStatement.Shop) {
 		// Inventory background
 		var bgSprite = spr_gui_inventory_bg;
 		var margin = new Margin(30, 50, 30, 100);
@@ -44,8 +45,8 @@ switch (guiStatement) {
 			0, c_white, bgAlpha
 		);
 		// Page index
-		draw_text(margin.Left + 10, margin.Top + 10, "Page: " + string(min(inventoryPageCount, inventoryPageIndex + 1)) + " / " + string(inventoryPageCount));
-	} break;
+		draw_text(margin.Left + 10, margin.Top + 10, "Page: " + string(min(itemListPageCount, itemListPageIndex + 1)) + " / " + string(itemListPageCount));	
+	}
 }
 
 var listSize = ds_list_size(guiButtonGroups);

@@ -4,4 +4,5 @@
 enum GUIStatement {
 	ActionMenu,
 	Inventory,
+	Shop,
 }

@@ -9,7 +9,7 @@ function GetGUIStatement() {
 	var statement = undefined;
 	if (instance_exists(controller)) {
 		with (controller) {
-			statement = guiStatement;	
+			statement = guiStatement;
 		}
 	}
 	return statement;
@@ -30,6 +30,9 @@ function RequestGUIStatementSet(_guiStatement) {
 				switch (_guiStatement) {
 					case GUIStatement.Inventory: {
 						OpenGUIStatementInventory();
+					} break;
+					case GUIStatement.Shop: {
+						OpenGUIStatementShop();
 					} break;
 				}
 			}
@@ -59,46 +62,10 @@ function RequestGUIStatementChange() {
 				case GUIStatement.Inventory: {
 					CloseGUIStatementInventory();
 				} break;
+				case GUIStatement.Shop: {
+					CloseGUIStatementShop();
+				} break;
 			}
-		}
-	}
-}
-
-/*
-	Insert description here
-	return:
-*/
-function OpenGUIStatementInventory() {
-	var intentoryControls = GetDbGUIButtonGroupByIndex(GUIButtonGroupIndex.InventoryControls);
-	AddGUIButtonGroupActive(intentoryControls);
-	
-	var inventoryItemList = GetDbGUIButtonGroupByIndex(GUIButtonGroupIndex.InventoryItemList);
-	AddGUIButtonGroupActive(inventoryItemList);
-	
-	with (obj_controller_gui) {
-		inventoryPageIndex = 0;
-		inventoryRefresh = true;
-	}
-}
-
-/*
-	Insert description here
-	return:
-*/
-function CloseGUIStatementInventory() {
-	RemoveGUIButtonGroupActiveByIndex(GUIButtonGroupIndex.InventoryControls);
-	RemoveGUIButtonGroupActiveByIndex(GUIButtonGroupIndex.InventoryItemList);
-}
-
-/*
-	Insert description here
-	return:
-*/
-function RequestInventoryItemListUpdate() {
-	var controller = obj_controller_gui;
-	if (instance_exists(controller)) {
-		with (controller) {
-			controller.inventoryRefresh = true;
 		}
 	}
 }
