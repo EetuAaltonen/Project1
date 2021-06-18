@@ -4,12 +4,12 @@ hotbarData = new HotbarData(undefined, undefined);
 guiButtonGroups = ds_list_create();
 
 // Inventory
-inventoryRenderData = undefined;
-inventoryRefresh = false;
-inventoryPageIndex = 0;
-inventoryPageCount = 1;
-inventoryLastIndex = 0;
-inventoryRenderDataSize = 0;
+itemListRenderData = undefined;
+itemListRefresh = false;
+itemListPageIndex = 0;
+itemListPageCount = 1;
+itemListLastIndex = 0;
+itemListRenderDataSize = 0;
 
 // Fonts
 hotbarFont = undefined;

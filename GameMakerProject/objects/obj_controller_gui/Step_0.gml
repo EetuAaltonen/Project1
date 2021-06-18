@@ -3,48 +3,53 @@ var inventoryKeyNextPage = keyboard_check_released(ord("D"));
 var inventoryKeyPrevPage = keyboard_check_released(ord("A"));
 var inventoryKey = keyboard_check_released(vk_tab);
 var escKey = keyboard_check_released(vk_escape);
-var guiStatement = GetGUIStatement();
 
 if (is_undefined(guiStatement)) {
 	if (inventoryKey) {
 		RequestGUIStatementSet(GUIStatement.Inventory);
-		inventoryRenderData = GetInventoryAllItems();
+		itemListRenderData = GetInventoryAllItems();
 	}
 } else {
-	switch (guiStatement) {
-		case GUIStatement.Inventory: {
-			if (inventoryKey || escKey) {
-				RequestGUIStatementReset();
-			} else {
-				if (!is_undefined(inventoryRenderData)) {
-					var guiButtonGroup = GetGUIButtonGroupActiveByIndex(GUIButtonGroupIndex.InventoryItemList);
-					var itemsPerPage = ds_list_size(guiButtonGroup.Buttons);
+	if (guiStatement == GUIStatement.Inventory ||
+		guiStatement == GUIStatement.Shop) {
+		if (inventoryKey || escKey) {
+			RequestGUIStatementReset();
+		} else {
+			if (!is_undefined(itemListRenderData)) {
+				var guiButtonGroup;
+				if (guiStatement == GUIStatement.Inventory) {
+					guiButtonGroup = GetGUIButtonGroupActiveByIndex(GUIButtonGroupIndex.InventoryItemList);
+				} else if (guiStatement == GUIStatement.Shop) {
+					guiButtonGroup = GetGUIButtonGroupActiveByIndex(GUIButtonGroupIndex.ShopItemList);
+				}
+				var itemsPerPage = ds_list_size(guiButtonGroup.Buttons);
 					
-					// Page change
-					inventoryPageCount = ceil(inventoryRenderDataSize / itemsPerPage);
+				// Page change
+				itemListPageCount = ceil(itemListRenderDataSize / itemsPerPage);
+				if (itemListPageCount > 0) {
 					if (inventoryKeyNextPage) {
-						inventoryPageIndex = ++inventoryPageIndex > (inventoryPageCount - 1) ? 0 : inventoryPageIndex;
-						inventoryRefresh = true;
+						itemListPageIndex = ++itemListPageIndex > (itemListPageCount - 1) ? 0 : itemListPageIndex;
+						itemListRefresh = true;
 					} else if (inventoryKeyPrevPage) {
-						inventoryPageIndex = --inventoryPageIndex < 0 ? (inventoryPageCount - 1) : inventoryPageIndex;
-						inventoryRefresh = true;
+						itemListPageIndex = --itemListPageIndex < 0 ? (itemListPageCount - 1) : itemListPageIndex;
+						itemListRefresh = true;
 					}
 					
-					if (inventoryRefresh) {
-						inventoryRefresh = false;
-						inventoryRenderDataSize = ds_list_size(inventoryRenderData);
-						inventoryLastIndex = min(itemsPerPage, (inventoryRenderDataSize - (inventoryPageIndex * itemsPerPage)));
+					if (itemListRefresh) {
+						itemListRefresh = false;
+						itemListRenderDataSize = ds_list_size(itemListRenderData);
+						itemListLastIndex = min(itemsPerPage, (itemListRenderDataSize - (itemListPageIndex * itemsPerPage)));
 
-						// Create item list
-						var vMargin = 59;
+						// Update item list values
+						var vMargin = 61;
 						for (var i = 0; i < itemsPerPage; i++) {
 							var guiButton =	ds_list_find_value(guiButtonGroup.Buttons, i);
-							var isBeforeLastIndex = i < inventoryLastIndex;
-							var itemIndex = i + (inventoryPageIndex * itemsPerPage);
-							var itemData = isBeforeLastIndex ? ds_list_find_value(inventoryRenderData, itemIndex) : undefined;
+							var isBeforeLastIndex = i < itemListLastIndex;
+							var itemIndex = i + (itemListPageIndex * itemsPerPage);
+							var itemData = isBeforeLastIndex ? ds_list_find_value(itemListRenderData, itemIndex) : undefined;
 							
 							guiButton.Index = itemIndex;
-							guiButton.Position = new Vector2(60, 70 + (i * vMargin));
+							guiButton.Position = new Vector2(60, 130 + (i * vMargin));
 							guiButton.Value = itemData;
 							guiButton.IsVisible = isBeforeLastIndex;
 							guiButton.ClickFunc = isBeforeLastIndex ? ClickedButtonFuncInventoryItem : undefined;
@@ -52,7 +57,7 @@ if (is_undefined(guiStatement)) {
 					}
 				}
 			}
-		} break;
+		}
 	}
 }
 
