@@ -34,3 +34,15 @@ function InteractionMine(_player, _vein) {
 		}
 	}
 }
+
+/*
+	Insert description here
+	param: _player - Insert description here
+	param: _npc - Insert description here
+*/
+function InteractionOpenShop(_player, _npc) {
+	RequestGUIStatementSet(GUIStatement.Shop);
+	// TODO: Fetch/generate item list for shop
+	var shopRenderData = GetInventoryAllItems();
+	SetGUIItemListRenderData(shopRenderData);
+}

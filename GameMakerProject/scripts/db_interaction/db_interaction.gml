@@ -43,6 +43,7 @@ function GetDbAllInteractionArray() {
 		new Interaction(InteractionIndex.Lift, "Lift"),
 		new Interaction(InteractionIndex.Push, "Push"),
 		new Interaction(InteractionIndex.Collect, "Collect"),
-		new Interaction(InteractionIndex.Mine, "Mine")
+		new Interaction(InteractionIndex.Mine, "Mine"),
+		new Interaction(InteractionIndex.Talk, "Talk"),
 	];
 }

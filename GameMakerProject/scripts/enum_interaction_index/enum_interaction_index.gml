@@ -6,4 +6,5 @@ enum InteractionIndex {
 	Push,
 	Collect,
 	Mine,
+	Talk,
 }

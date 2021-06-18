@@ -24,6 +24,8 @@ if (highlightedObject != noone) {
 				selectedMenuIndex = ++selectedMenuIndex >= listSize ? 0 : selectedMenuIndex;
 			} else if (menuKeySelect) {
 				var interaction = ds_list_find_value(interactionMenuValues, selectedMenuIndex);
+				
+				RequestGUIStatementReset();
 				switch (interaction.Index) {
 					case InteractionIndex.Collect: {
 						AddInventoryItem(highlightedObject.itemData, highlightedObject.itemData.Count);
@@ -37,10 +39,12 @@ if (highlightedObject != noone) {
 						ResetInteraction();
 					} break;
 					case InteractionIndex.Mine: {
-						InteractionMine(player, highlightedObject)
+						InteractionMine(player, highlightedObject);
+					} break;
+					case InteractionIndex.Talk: {
+						InteractionOpenShop(player, highlightedObject);
 					} break;
 				}
-				RequestGUIStatementReset();
 			}
 		}
 	}
