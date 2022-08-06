@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\eetua\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\eetua\\.nuget\\packages"
+    ]
+  }
+}

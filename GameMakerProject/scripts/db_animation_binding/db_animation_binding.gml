@@ -75,10 +75,17 @@ function GetDbAllAnimationBindingArray() {
 		new AnimationBinding(obj_player_l_arm, AnimationIndex.PlayerFallLeftArm, CharacterStatement.Fall),
 		new AnimationBinding(obj_player_r_leg, AnimationIndex.PlayerFallRightLeg, CharacterStatement.Fall),
 		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerFallLeftLeg, CharacterStatement.Fall),
-		// Player fall
+		// Player mine
 		new AnimationBinding(obj_player_r_arm, AnimationIndex.PlayerMineRightArm, CharacterStatement.Mine),
 		new AnimationBinding(obj_player_l_arm, AnimationIndex.PlayerMineLeftArm, CharacterStatement.Mine),
 		new AnimationBinding(obj_player_r_leg, AnimationIndex.PlayerMineRightLeg, CharacterStatement.Mine),
-		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerMineLeftLeg, CharacterStatement.Mine)
+		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerMineLeftLeg, CharacterStatement.Mine),
+		// Player flip
+		new AnimationBinding(obj_player_head, AnimationIndex.PlayerFlipHead, CharacterStatement.Flip),
+		new AnimationBinding(obj_player, AnimationIndex.PlayerFlipBody, CharacterStatement.Flip),
+		new AnimationBinding(obj_player_r_arm, AnimationIndex.PlayerFlipRightArm, CharacterStatement.Flip),
+		new AnimationBinding(obj_player_l_arm, AnimationIndex.PlayerFlipLeftArm, CharacterStatement.Flip),
+		new AnimationBinding(obj_player_r_leg, AnimationIndex.PlayerFlipRightLeg, CharacterStatement.Flip),
+		new AnimationBinding(obj_player_l_leg, AnimationIndex.PlayerFlipLeftLeg, CharacterStatement.Flip)
 	];
 }

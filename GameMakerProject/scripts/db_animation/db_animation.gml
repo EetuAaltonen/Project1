@@ -58,10 +58,17 @@ function GetDbAllAnimationArray() {
 		new Animation(AnimationIndex.PlayerFallLeftArm, false),
 		new Animation(AnimationIndex.PlayerFallRightLeg, false),
 		new Animation(AnimationIndex.PlayerFallLeftLeg, false),
-		// Player fall
+		// Player mine
 		new Animation(AnimationIndex.PlayerMineRightArm, true),
 		new Animation(AnimationIndex.PlayerMineLeftArm, true),
 		new Animation(AnimationIndex.PlayerMineRightLeg, true),
-		new Animation(AnimationIndex.PlayerMineLeftLeg, true)
+		new Animation(AnimationIndex.PlayerMineLeftLeg, true),
+		// Player flip
+		new Animation(AnimationIndex.PlayerFlipHead, false),
+		new Animation(AnimationIndex.PlayerFlipBody, false),
+		new Animation(AnimationIndex.PlayerFlipRightArm, false),
+		new Animation(AnimationIndex.PlayerFlipLeftArm, false),
+		new Animation(AnimationIndex.PlayerFlipRightLeg, false),
+		new Animation(AnimationIndex.PlayerFlipLeftLeg, false)
 	];
 }

@@ -27,17 +27,17 @@ if (is_undefined(GetGUIStatement())) {
 				// Jump
 				if (keyUp) {
 					speedVector.y -= jumpSpeed;
-					characterStatement = CharacterStatement.Jump;
+					characterStatement = CharacterStatement.Flip;
 				} else if (speedVector.x != 0) {
 					characterStatement = CharacterStatement.Walk;
 				} else {
 					characterStatement = CharacterStatement.Idle;	
 				}
 			} else {
-				if (characterStatement == CharacterStatement.Jump) {
-					if (speedVector.y >= 0) {
+				if (characterStatement == CharacterStatement.Flip) {
+					/*if (speedVector.y >= 0) {
 						characterStatement = CharacterStatement.Fall;	
-					}
+					}*/
 				} else if (characterStatement == CharacterStatement.Fall) {
 					if (IsObjectGrounded(self)) {
 						characterStatement = CharacterStatement.Idle;

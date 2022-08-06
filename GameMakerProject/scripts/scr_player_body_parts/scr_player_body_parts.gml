@@ -17,6 +17,24 @@ function TransFuncPlayerHead(_transform) {
 	Insert description here
 	param: _transform - Insert description here
 */
+function TransFuncPlayerBody(_transform) {
+	var instance = _transform.Instance;
+	var xDir = sign(instance.image_xscale);
+	var yDir = sign(instance.image_yscale);
+	
+	var animatedTransform = GetAnimatedTransform(_transform);
+	if (is_undefined(animatedTransform)) { animatedTransform = _transform; }
+
+	instance.image_xscale = animatedTransform.Scale.Horizontal * xDir;
+	instance.image_yscale = animatedTransform.Scale.Vertical * yDir;
+	instance.image_angle = animatedTransform.Rotation * xDir;
+	instance.depth = animatedTransform.Depth * xDir;
+}
+
+/*
+	Insert description here
+	param: _transform - Insert description here
+*/
 function TransFuncPlayerLimb(_transform) {
 	var instance = _transform.Instance;
 	var parentInstance = _transform.Parent.Instance;

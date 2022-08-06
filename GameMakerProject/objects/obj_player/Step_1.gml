@@ -9,5 +9,6 @@ if (createAllChild) {
 	transform.AddChild(new Transform(object_get_name(obj_player_r_leg), undefined, transform, TransFuncPlayerLimb, new Vector2(-4, 4), new Scale(1, 1), 0, -2));
 	transform.AddChild(new Transform(object_get_name(obj_player_l_leg), undefined, transform, TransFuncPlayerLimb, new Vector2(4, 4), new Scale(1, 1), 0, 2));
 	
+	InitAnimator(transform);
 	transform.CreateAllChild();
 }

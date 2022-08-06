@@ -4,6 +4,7 @@ enum CharacterStatement {
 	Walk,
 	Run,
 	Jump,
+	Flip,
 	Fall,
 	Ragdoll,
 	Interact,

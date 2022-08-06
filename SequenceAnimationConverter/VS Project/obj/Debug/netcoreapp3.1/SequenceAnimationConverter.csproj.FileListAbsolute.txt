@@ -1,0 +1,30 @@
+D:\Project1\SequenceAnimationConverter\Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.exe
+D:\Project1\SequenceAnimationConverter\Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.deps.json
+D:\Project1\SequenceAnimationConverter\Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.runtimeconfig.json
+D:\Project1\SequenceAnimationConverter\Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.runtimeconfig.dev.json
+D:\Project1\SequenceAnimationConverter\Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.dll
+D:\Project1\SequenceAnimationConverter\Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.pdb
+D:\Project1\SequenceAnimationConverter\Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.csprojAssemblyReference.cache
+D:\Project1\SequenceAnimationConverter\Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.AssemblyInfoInputs.cache
+D:\Project1\SequenceAnimationConverter\Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.AssemblyInfo.cs
+D:\Project1\SequenceAnimationConverter\Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.dll
+D:\Project1\SequenceAnimationConverter\Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.pdb
+D:\Project1\SequenceAnimationConverter\Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.genruntimeconfig.cache
+D:\Project1\SequenceAnimationConverter\Project\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Project1\SequenceAnimationConverter\Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.csproj.CoreCompileInputs.cache
+D:\Project1\SequenceAnimationConverter\Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.csproj.CopyComplete
+D:\Project1\SequenceAnimationConverter\VS Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.exe
+D:\Project1\SequenceAnimationConverter\VS Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.deps.json
+D:\Project1\SequenceAnimationConverter\VS Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.runtimeconfig.json
+D:\Project1\SequenceAnimationConverter\VS Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.runtimeconfig.dev.json
+D:\Project1\SequenceAnimationConverter\VS Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.dll
+D:\Project1\SequenceAnimationConverter\VS Project\bin\Debug\netcoreapp3.1\SequenceAnimationConverter.pdb
+D:\Project1\SequenceAnimationConverter\VS Project\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Project1\SequenceAnimationConverter\VS Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.csprojAssemblyReference.cache
+D:\Project1\SequenceAnimationConverter\VS Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.csproj.CoreCompileInputs.cache
+D:\Project1\SequenceAnimationConverter\VS Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.AssemblyInfoInputs.cache
+D:\Project1\SequenceAnimationConverter\VS Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.AssemblyInfo.cs
+D:\Project1\SequenceAnimationConverter\VS Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.csproj.CopyComplete
+D:\Project1\SequenceAnimationConverter\VS Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.dll
+D:\Project1\SequenceAnimationConverter\VS Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.pdb
+D:\Project1\SequenceAnimationConverter\VS Project\obj\Debug\netcoreapp3.1\SequenceAnimationConverter.genruntimeconfig.cache

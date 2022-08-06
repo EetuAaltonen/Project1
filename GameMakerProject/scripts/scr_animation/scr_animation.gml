@@ -21,7 +21,7 @@ function GetActiveAnimationFromList(_animationList, _animationTriggerValue) {
 	Insert description here
 */
 function GetAnimationTick() {
-	return room_speed / 60;
+	return room_speed / 60; // == 1 tick
 }
 
 /*

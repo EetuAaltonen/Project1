@@ -18,9 +18,16 @@ enum AnimationIndex {
 	PlayerFallLeftArm,
 	PlayerFallRightLeg,
 	PlayerFallLeftLeg,
-	// Player fall
+	// Player mine
 	PlayerMineRightArm,
 	PlayerMineLeftArm,
 	PlayerMineRightLeg,
 	PlayerMineLeftLeg,
+	// Player flip
+	PlayerFlipHead,
+	PlayerFlipBody,
+	PlayerFlipRightArm,
+	PlayerFlipLeftArm,
+	PlayerFlipRightLeg,
+	PlayerFlipLeftLeg,
 }

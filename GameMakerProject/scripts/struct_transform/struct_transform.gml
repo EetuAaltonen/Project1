@@ -53,13 +53,13 @@ function Transform(_objectName, _instance, _parent, _transformFunc, _offset, _sc
 		Insert description here
 	*/
 	static UpdateTransform = function() {
-		if (!is_undefined(Parent)) {
-			if (Parent.AnimationTriggerValue != AnimationTriggerValue) {
-				AnimationTriggerValue = Parent.AnimationTriggerValue;
-				if (instance_exists(Animator)) {
-					Animator.animationTriggerValue = AnimationTriggerValue;
+		if (instance_exists(Animator)) {
+			if (!is_undefined(Parent)) {
+				if (Parent.AnimationTriggerValue != AnimationTriggerValue) {
+					AnimationTriggerValue = Parent.AnimationTriggerValue;
 				}
 			}
+			Animator.animationTriggerValue = AnimationTriggerValue;
 		}
 		
 		if (instance_exists(Instance) && !is_undefined(ObjectName) && !is_undefined(TransformFunc) && script_exists(TransformFunc)) {

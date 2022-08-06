@@ -54,4 +54,3 @@ if (is_undefined(GetGUIStatement()) && instance_exists(transformInstance)) {
 		}
 	}
 }
-alarm[0] = GetAnimationTick();
